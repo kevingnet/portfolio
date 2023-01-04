@@ -1,0 +1,1066 @@
+[20:47:47] [48;5;15m[48;5;240m   HEADER   
+≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+Test Name: TestDemandWithTwoDisks
+Start Date: July 31, 2015
+Start Time: 08:47 PM
+----------------------------------------------------------------------
+[20:47:47] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                          SYSTEM INFORMATION                         
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:47] [107m[30mINFO[0m TEST MACHINE: Linux:x86_64
+[20:47:47] [107m[30mINFO[0m platform: Linux-3.16.0-4-amd64-x86_64-with-debian-8.1
+[20:47:47] [107m[30mINFO[0m uname: ('Linux', 'debian', '3.16.0-4-amd64', '#1 SMP Debian 3.16.7-ckt11-1 (2015-05-24)', 'x86_64', '')
+[20:47:47] [107m[30mINFO[0m PYTHON VERSION: 2.7.9
+[20:47:47] [107m[30mINFO[0m ENVIRONMENT VARIABLES
+[20:47:47] [107m[30mINFO[0m PYTHON: /build/toolchain/lin32/python-2.6.1/bin/python
+[20:47:47] [107m[30mINFO[0m Environment variable: HOSTNAME not found 'HOSTNAME'
+[20:47:47] [107m[30mINFO[0m VMBLD: release
+[20:47:47] [107m[30mINFO[0m VMTREE: /build/storage61/release/bora-2882837/bora
+[20:47:47] [107m[30mINFO[0m PATH: /home/kguerra/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/kguerra/bin:/usr/ubin:/home/kguerra/.fvwm/scripts:/usr/local/bin:/usr/games:/build/apps/bin:/home/kguerra/bin:/usr/ubin:/home/kguerra/.fvwm/scripts:/usr/local/bin:/usr/games:/build/apps/bin
+[20:47:47] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                             Build phase                             
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[1m[38;5;76mBEGIN: lib.framework.Factory:build()[0m
+[20:47:47] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                             Loading Hbr                             
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.hbr.Hbr:__init__()[0m
+[20:47:47] [38;5;245mDEBUG running command:openssl x509 -noout -in /tmp/results/tmp/fakehms.crt -fingerprint -sha1 | sed 's/^SHA1 Fingerprint=//'
+[20:47:47] [107m[30mINFO[0m SSL Thumbprint: 42:53:8F:87:38:E1:CC:AF:14:09:3E:EE:FB:A9:A8:0E:C8:9B:4C:42
+[20:47:47] [38;5;245mDEBUG Initialized Hbr:str:
+   index: 0
+   name: 'Hbr'
+   Hbr: <lib.framework.hbr.Hbr object at 0x7f946b04a150>
+   Machine: <lib.framework.hbr.Hbr object at 0x7f946b04a150>
+   hostName: 'hms'
+   ip: '10.20.109.62'
+   port: 8123
+   tmp: '/tmp/results/tmp'
+   authentication: {
+      'certificate': '/tmp/results/tmp/fakehms.crt',
+      'key': '/tmp/results/tmp/fakehms.key',
+      'thumbprint': '42:53:8F:87:38:E1:CC:AF:14:09:3E:EE:FB:A9:A8:0E:C8:9B:4C:42',
+   }
+   credentials: {
+      'password': 'vmware11',
+      'user': 'root',
+   }
+   filter: {
+      'replicator': 'hbr_filter',
+      'sample': 'vscsi_example_filter',
+   }
+   tools: {
+      'hbrpsftool': '/sbin/hbrpsftool',
+      'ioctl': '/sbin/hbrfilterctl',
+   }
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.hbr.Hbr:__init__()[0m
+[20:47:47] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                        Loading Esxs, count:1                        
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.esx.Esxs:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.esx.Esx:__init__()[0m
+[20:47:47] [38;5;245mDEBUG Esx:str:
+   index: 0
+   name: 'Esx0'
+   Esx: <lib.framework.esx.Esx object at 0x7f946b04a350>
+   Hbr: <lib.framework.hbr.Hbr object at 0x7f946b04a150>
+   hbr: <lib.framework.hbr.Hbr object at 0x7f946b04a150>
+   hostName: 'esx'
+   ip: '10.20.108.246'
+   testDirectory: 'HBRQA/Gemini/TestDemandWithTwoDisks'
+   credentials: {
+      'password': 'ca$hc0w',
+      'user': 'root',
+   }
+   datastore: {
+      'name': 'datastore1',
+      'root': 'HBRQA/Gemini',
+      'uuid': '55368e50-9b9fe000-be4d-549f352378ac',
+   }
+   tools: {
+      'disk_create': '/sbin/diskCreate',
+      'disk_tool': '/sbin/diskTool',
+      'hbrpsftool': '/sbin/hbrpsftool',
+   }
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.esx.Esx:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.esx.Esxs:__init__()[0m
+[20:47:47] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                  Loading ReplicationGroups, count:1                 
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.replication_group.ReplicationGroup:__init__()[0m
+[20:47:47] [38;5;245mDEBUG ReplicationGroup:str:
+   index: 0
+   name: 'ReplicationGroup0'
+   ReplicationGroup: <lib.framework.replication_group.ReplicationGroup object at 0x7f946b04a210>
+   autoStart: True
+   enableNetworkCompression: False
+   enableOpportunistic: False
+   enableQuiescing: False
+   lwdPort: 31031
+   rpo: 30
+   protectedMachines: []
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.replication_group.ReplicationGroup:__init__()[0m
+[20:47:47] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                  Loading ProtectedMachines, count:2                 
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.protected_machine.ProtectedMachines:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.protected_machine.ProtectedMachine:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.disk.Disks:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.disk.Disk:__init__()[0m
+[20:47:47] [38;5;245mDEBUG Disks:str:
+   index: 0
+   name: 'Disk0'
+   Disk: <lib.framework.disk.Disk object at 0x7f946b04a250>
+   adapterType: 'lsiLogic'
+   controllerType: 'scsi'
+   format: 'thick'
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk'
+   size: 100000
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.disk.Disk:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.disk.Disks:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.replica.Replica:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.replica_disk.ReplicaDisks:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.replica_disk.ReplicaDisk:__init__()[0m
+[20:47:47] [38;5;245mDEBUG ReplicaDisk:str:
+   index: 0
+   name: 'Disk0'
+   Disk: None
+   ReplicaDisk: <lib.framework.replica_disk.ReplicaDisk object at 0x7f946b04a390>
+   adapterType: 'lsiLogic'
+   controllerType: 'scsi'
+   format: 'thick'
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk'
+   size: 100000
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.replica_disk.ReplicaDisk:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.replica_disk.ReplicaDisks:__init__()[0m
+[20:47:47] [38;5;245mDEBUG Replica:str:
+   index: 0
+   name: 'Replica0'
+   Replica: <lib.framework.replica.Replica object at 0x7f946b04a0d0>
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas'
+   disks: [
+      <lib.framework.replica_disk.ReplicaDisk object at 0x7f946b04a390>,
+   ]
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.replica.Replica:__init__()[0m
+[20:47:47] [38;5;245mDEBUG ProtectedMachine:str:
+   index: 0
+   name: 'ProtectedMachine0'
+   Machine: <lib.framework.protected_machine.ProtectedMachine object at 0x7f946b04a3d0>
+   ProtectedMachine: <lib.framework.protected_machine.ProtectedMachine object at 0x7f946b04a3d0>
+   ReplicationGroup: <lib.framework.replication_group.ReplicationGroup object at 0x7f946b04a210>
+   baseDiskName: 'ProtectedMachine0-basedisk.vmdk'
+   enabled: True
+   initialPowerState: 'PoweredOn'
+   ip: 123
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0'
+   replica: <lib.framework.replica.Replica object at 0x7f946b04a0d0>
+   disks: [
+      <lib.framework.disk.Disk object at 0x7f946b04a250>,
+   ]
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.protected_machine.ProtectedMachine:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.protected_machine.ProtectedMachine:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.disk.Disks:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.disk.Disk:__init__()[0m
+[20:47:47] [38;5;245mDEBUG Disks:str:
+   index: 0
+   name: 'Disk0'
+   Disk: <lib.framework.disk.Disk object at 0x7f946b04a690>
+   adapterType: 'lsiLogic'
+   controllerType: 'scsi'
+   format: 'thick'
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine1/Disk0.vmdk'
+   size: 100000
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.disk.Disk:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.disk.Disk:__init__()[0m
+[20:47:47] [38;5;245mDEBUG Disks:str:
+   index: 1
+   name: 'Disk1'
+   Disk: <lib.framework.disk.Disk object at 0x7f946b04a050>
+   adapterType: 'lsiLogic'
+   controllerType: 'scsi'
+   format: 'thick'
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine1/Disk1.vmdk'
+   size: 200000
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.disk.Disk:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.disk.Disks:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.replica.Replica:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.replica_disk.ReplicaDisks:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.replica_disk.ReplicaDisk:__init__()[0m
+[20:47:47] [38;5;245mDEBUG ReplicaDisk:str:
+   index: 0
+   name: 'Disk0'
+   Disk: None
+   ReplicaDisk: <lib.framework.replica_disk.ReplicaDisk object at 0x7f946b04a750>
+   adapterType: 'lsiLogic'
+   controllerType: 'scsi'
+   format: 'thick'
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine1/Replicas/Disk0.vmdk'
+   size: 100000
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.replica_disk.ReplicaDisk:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;76mBEGIN: lib.framework.replica_disk.ReplicaDisk:__init__()[0m
+[20:47:47] [38;5;245mDEBUG ReplicaDisk:str:
+   index: 1
+   name: 'Disk1'
+   Disk: None
+   ReplicaDisk: <lib.framework.replica_disk.ReplicaDisk object at 0x7f946b04a710>
+   adapterType: 'lsiLogic'
+   controllerType: 'scsi'
+   format: 'thick'
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine1/Replicas/Disk1.vmdk'
+   size: 200000
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.replica_disk.ReplicaDisk:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.replica_disk.ReplicaDisks:__init__()[0m
+[20:47:47] [38;5;245mDEBUG Replica:str:
+   index: 1
+   name: 'Replica1'
+   Replica: <lib.framework.replica.Replica object at 0x7f946b04a490>
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine1/Replicas'
+   disks: [
+      <lib.framework.replica_disk.ReplicaDisk object at 0x7f946b04a750>,
+      <lib.framework.replica_disk.ReplicaDisk object at 0x7f946b04a710>,
+   ]
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.replica.Replica:__init__()[0m
+[20:47:47] [38;5;245mDEBUG ProtectedMachine:str:
+   index: 1
+   name: 'ProtectedMachine1'
+   Machine: <lib.framework.protected_machine.ProtectedMachine object at 0x7f946b04a550>
+   ProtectedMachine: <lib.framework.protected_machine.ProtectedMachine object at 0x7f946b04a550>
+   ReplicationGroup: 1
+   enabled: False
+   initialPowerState: 'PoweredOff'
+   ip: 123
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine1'
+   replica: <lib.framework.replica.Replica object at 0x7f946b04a490>
+   disks: [
+      <lib.framework.disk.Disk object at 0x7f946b04a690>,
+      <lib.framework.disk.Disk object at 0x7f946b04a050>,
+   ]
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.protected_machine.ProtectedMachine:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[38;5;28mEND: lib.framework.protected_machine.ProtectedMachines:__init__()[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[1m[38;5;64mEND: lib.framework.Factory:build()[0m
+[20:47:47] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                           Post build phase                          
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:47] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                         Initialization phase                        
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:47] [38;5;18mFUNCTION[38;5;252m 	[1m[38;5;208mBEGIN: lib.lwrdo.Factory:build()[0m
+[20:47:47] [107m[30mINFO[0m Building Hbr
+[20:47:47] [107m[30mINFO[0m script:/build/storage61/release/bora-2882837/bora/apps/hbr/hbrsrv/scripts/hbrsrvctl.py
+[20:47:47] [107m[30mINFO[0m Building Esxs, count:1
+[20:47:47] [107m[30mINFO[0m Building ReplicationGroups, count:1
+[20:47:47] [107m[30mINFO[0m Building ProtectedMachines, count:2
+[20:47:48] [38;5;18mFUNCTION[38;5;252m 	[1m[38;5;130mEND: lib.lwrdo.Factory:build()[0m
+[20:47:48] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                         Configuration phase                         
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:48] [38;5;18mFUNCTION[38;5;252m 	[1m[38;5;76mBEGIN: lib.framework.Factory:configure()[0m
+[20:47:48] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                      Configuring Esxs, count:1                      
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:48] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.esx.Esx:configure()[0m
+[20:47:48] [38;5;18mFUNCTION[38;5;252m 	[48;5;235mBEGIN: lib.service.ssh.Ssh:__init__()[0m
+[20:47:48] [107m[30mINFO[0m host/port: 10.20.108.246:22 - user: root
+[20:47:48] [38;5;18mFUNCTION[38;5;252m 	[48;5;234mEND: lib.service.ssh.Ssh:__init__()[0m
+[20:47:48] [107m[30mINFO[0m logs:['/var/log/syslog.log', '/var/log/hostd.log', '/var/log/vmkwarning.log']
+[20:47:48] [38;5;18mFUNCTION[38;5;252m 	[48;5;235mBEGIN: lib.service.remote_log_reader.RemoteLogReader:__init__()[0m
+[20:47:48] [38;5;245mDEBUG 10.20.108.246:connecting host
+[20:47:48] [38;5;245mDEBUG Log file exists: /var/log/syslog.log
+[20:47:48] [38;5;245mDEBUG Log file exists: /var/log/hostd.log
+[20:47:48] [38;5;245mDEBUG Log file exists: /var/log/vmkwarning.log
+[20:47:49] [38;5;18mFUNCTION[38;5;252m 	[48;5;234mEND: lib.service.remote_log_reader.RemoteLogReader:__init__()[0m
+[20:47:49] [107m[30mINFO[0m host:hostd[10.20.108.246]
+[20:47:49] [107m[30mINFO[0m hostServiceInstance:'vim.ServiceInstance:ServiceInstance'
+[20:47:49] [107m[30mINFO[0m authorizationManager:'vim.AuthorizationManager:ha-authmgr'
+[20:47:49] [107m[30mINFO[0m self.datastore.name:datastore1
+[20:47:49] [107m[30mINFO[0m remoteStorage:[datastore1]
+[20:47:49] [107m[30mINFO[0m serviceInstance:'vim.ServiceInstance:ServiceInstance'
+[20:47:49] [107m[30mINFO[0m datacenter:'vim.Datacenter:ha-datacenter'
+[20:47:49] [38;5;245mDEBUG configured Esx:str:
+   index: 0
+   name: 'Esx0'
+   Esx: <lib.framework.esx.Esx object at 0x7f946b04a350>
+   Hbr: <lib.framework.hbr.Hbr object at 0x7f946b04a150>
+   authenticationString: 'root:ca$hc0w@10.20.108.246'
+   authorizationManager: 'vim.AuthorizationManager:ha-authmgr'
+   datacenter: 'vim.Datacenter:ha-datacenter'
+   hbr: <lib.framework.hbr.Hbr object at 0x7f946b04a150>
+   host: <pyHbr.hostd.Hostd instance at 0x7f94769fe3b0>
+   hostName: 'esx'
+   hostServiceInstance: 'vim.ServiceInstance:ServiceInstance'
+   ip: '10.20.108.246'
+   remoteStorage: <pyHbr.disks.RemoteStorage instance at 0x7f94769f53f8>
+   serviceInstance: 'vim.ServiceInstance:ServiceInstance'
+   ssh: <lib.service.ssh.Ssh instance at 0x7f9474e76d88>
+   testDirectory: 'HBRQA/Gemini/TestDemandWithTwoDisks'
+   credentials: {
+      'password': 'ca$hc0w',
+      'user': 'root',
+   }
+   datastore: {
+      'name': 'datastore1',
+      'root': 'HBRQA/Gemini',
+      'uuid': '55368e50-9b9fe000-be4d-549f352378ac',
+   }
+   tools: {
+      'disk_create': '/sbin/diskCreate',
+      'disk_tool': '/sbin/diskTool',
+      'hbrpsftool': '/sbin/hbrpsftool',
+   }
+[20:47:49] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.esx.Esx:configure()[0m
+[20:47:49] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                           Configuring Hbr                           
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:49] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.hbr.Hbr:configure()[0m
+[20:47:49] [38;5;18mFUNCTION[38;5;252m 	[48;5;235mBEGIN: lib.service.ssh.Ssh:__init__()[0m
+[20:47:49] [107m[30mINFO[0m host/port: 10.20.109.62:22 - user: root
+[20:47:49] [38;5;18mFUNCTION[38;5;252m 	[48;5;234mEND: lib.service.ssh.Ssh:__init__()[0m
+[20:47:49] [107m[30mINFO[0m logs:['/var/log/messages', '/var/log/vmware/hbrsrv.log']
+[20:47:49] [38;5;18mFUNCTION[38;5;252m 	[48;5;235mBEGIN: lib.service.remote_log_reader.RemoteLogReader:__init__()[0m
+[20:47:49] [38;5;245mDEBUG 10.20.109.62:connecting host
+[20:47:50] [38;5;245mDEBUG Log file exists: /var/log/messages
+[20:47:50] [38;5;245mDEBUG Log file exists: 
+[20:47:50] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Log file /var/log/messages not found in host: 10.20.109.62
+[20:47:51] [38;5;18mFUNCTION[38;5;252m 	[48;5;234mEND: lib.service.remote_log_reader.RemoteLogReader:__init__()[0m
+[20:47:51] [107m[30mINFO[0m _hvm:None
+[20:47:51] [107m[30mINFO[0m manager:'vim.HbrManager:ha-hbr-manager'
+[20:47:51] [38;5;245mDEBUG configured Hbr:str:
+   index: 0
+   name: 'Hbr'
+   Hbr: <lib.framework.hbr.Hbr object at 0x7f946b04a150>
+   Machine: <lib.framework.hbr.Hbr object at 0x7f946b04a150>
+   authenticationString: 'root:vmware11@10.20.109.62'
+   control: <lib.service.hbr_control.HbrControl object at 0x7f946b04a2d0>
+   fileName: None
+   filePathDatastore: None
+   hostName: 'hms'
+   id: 0
+   ip: '10.20.109.62'
+   manager: 'vim.HbrManager:ha-hbr-manager'
+   path: None
+   port: 8123
+   ssh: <lib.service.ssh.Ssh instance at 0x7f9476685128>
+   tmp: '/tmp/results/tmp'
+   disks: []
+   authentication: {
+      'certificate': '/tmp/results/tmp/fakehms.crt',
+      'key': '/tmp/results/tmp/fakehms.key',
+      'thumbprint': '42:53:8F:87:38:E1:CC:AF:14:09:3E:EE:FB:A9:A8:0E:C8:9B:4C:42',
+   }
+   credentials: {
+      'password': 'vmware11',
+      'user': 'root',
+   }
+   filter: {
+      'replicator': 'hbr_filter',
+      'sample': 'vscsi_example_filter',
+   }
+   tools: {
+      'hbrpsftool': '/sbin/hbrpsftool',
+      'ioctl': '/sbin/hbrfilterctl',
+   }
+[20:47:51] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.hbr.Hbr:configure()[0m
+[20:47:51] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                Configuring ReplicationGroups, count:1               
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:51] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replication_group.ReplicationGroup:configure()[0m
+[20:47:51] [38;5;245mDEBUG configured ReplicationGroup:str:
+   index: 0
+   name: 'ReplicationGroup0'
+   ReplicationGroup: <lib.framework.replication_group.ReplicationGroup object at 0x7f946b04a210>
+   autoStart: True
+   enableNetworkCompression: False
+   enableOpportunistic: False
+   enableQuiescing: False
+   group: None
+   lwdPort: 31031
+   rpo: 30
+   specification: None
+   protectedMachines: [
+      <lib.lwrdo.protected_machine.ProtectedMachine object at 0x7f946b04aa10>,
+   ]
+[20:47:51] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replication_group.ReplicationGroup:configure()[0m
+[20:47:51] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                Configuring ProtectedMachines, count:2               
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:51] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:configure()[0m
+[20:47:51] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:configure()[0m
+[20:47:52] [107m[30mINFO[0m _hvm:'vim.VirtualMachine:818'
+[20:47:52] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:_resolveId()[0m
+[20:47:52] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:_getId()[0m
+[20:47:52] [38;5;245mDEBUG 10.20.108.246:run: vim-cmd vmsvc/getallvms | grep ProtectedMachine0 | awk '{print $1}'
+[20:47:53] [38;5;245mDEBUG 10.20.108.246:result OK
+[20:47:53] [48;5;242m[38;5;224mREMOTE_OUTPUT esx: _getId getallvms stdout: 818
+[0m[20:47:53] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:_getId()[0m
+[20:47:53] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:_getId()[0m
+[20:47:53] [38;5;245mDEBUG 10.20.108.246:run: vim-cmd vmsvc/getallvms | grep ProtectedMachine0 | awk '{print $1}'
+[20:47:53] [38;5;245mDEBUG 10.20.108.246:result OK
+[20:47:53] [48;5;242m[38;5;224mREMOTE_OUTPUT esx: _getId getallvms stdout: 818
+[0m[20:47:53] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:_getId()[0m
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:_resolveId()[0m
+[20:47:54] [38;5;245mDEBUG Machine id: 818
+[20:47:54] [107m[30mINFO[0m id: 818
+[20:47:54] [107m[30mINFO[0m fileName: /vmfs/volumes/datastore1/HBRQA/Gemini/Sources/ProtectedMachine0/ProtectedMachine0.vmx
+[20:47:54] [107m[30mINFO[0m filePath: /vmfs/volumes/datastore1/HBRQA/Gemini/Sources/ProtectedMachine0
+[20:47:54] [107m[30mINFO[0m _baseDiskFileName: /vmfs/volumes/datastore1/HBRQA/Gemini/Sources/ProtectedMachine0/ProtectedMachine0-basedisk.vmdk
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:_printDiskInformation()[0m
+[20:47:54] [107m[30mINFO[0m key 2000
+[20:47:54] [107m[30mINFO[0m _unitNumber 0
+[20:47:54] [107m[30mINFO[0m fileName [datastore1] HBRQA/Gemini/Sources/ProtectedMachine0/ProtectedMachine0-basedisk.vmdk
+[20:47:54] [107m[30mINFO[0m ---------------------------------------
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:_printDiskInformation()[0m
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:_attachBaseDisk()[0m
+[20:47:54] [38;5;245mDEBUG 10.20.108.246:run: vim-cmd vmsvc/device.diskaddexisting 818 /vmfs/volumes/datastore1/HBRQA/Gemini/Sources/ProtectedMachine0/ProtectedMachine0-basedisk.vmdk 0 0
+[20:47:54] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ 10.20.108.246: ERROR: Reconfigure failed:Operation not permitted
+[20:47:54] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ esx error for: _attachDisk diskaddexisting Reconfigure failed
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:_attachBaseDisk()[0m
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:_getUsedUnitNumbers()[0m
+[20:47:54] [38;5;237mVV _usedDiskUnitNumbers [0]
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:_getUsedUnitNumbers()[0m
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:_getPrimaryDiskControllerId()[0m
+[20:47:54] [107m[30mINFO[0m disk device: (vim.vm.device.VirtualDisk) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   key = 2000,
+   deviceInfo = (vim.Description) {
+      dynamicType = <unset>,
+      dynamicProperty = (vmodl.DynamicProperty) [],
+      label = 'Hard disk 1',
+      summary = '2,097,152 KB'
+   },
+   backing = (vim.vm.device.VirtualDisk.FlatVer2BackingInfo) {
+      dynamicType = <unset>,
+      dynamicProperty = (vmodl.DynamicProperty) [],
+      fileName = '[datastore1] HBRQA/Gemini/Sources/ProtectedMachine0/ProtectedMachine0-basedisk.vmdk',
+      datastore = 'vim.Datastore:55368e50-9b9fe000-be4d-549f352378ac',
+      backingObjectId = '',
+      diskMode = 'persistent',
+      split = false,
+      writeThrough = false,
+      thinProvisioned = false,
+      eagerlyScrub = true,
+      uuid = '6000C293-1672-3822-6e82-1b573aa71b82',
+      contentId = 'dd2c248683342fa2e4009ad78368a119',
+      changeId = <unset>,
+      parent = <unset>,
+      deltaDiskFormat = <unset>,
+      digestEnabled = false,
+      deltaGrainSize = <unset>,
+      deltaDiskFormatVariant = <unset>,
+      sharing = 'sharingNone'
+   },
+   connectable = <unset>,
+   slotInfo = <unset>,
+   controllerKey = 1000,
+   unitNumber = 0,
+   capacityInKB = 2097152L,
+   capacityInBytes = 2147483648L,
+   shares = (vim.SharesInfo) {
+      dynamicType = <unset>,
+      dynamicProperty = (vmodl.DynamicProperty) [],
+      shares = 1000,
+      level = 'normal'
+   },
+   storageIOAllocation = (vim.StorageResourceManager.IOAllocationInfo) {
+      dynamicType = <unset>,
+      dynamicProperty = (vmodl.DynamicProperty) [],
+      limit = -1L,
+      shares = (vim.SharesInfo) {
+         dynamicType = <unset>,
+         dynamicProperty = (vmodl.DynamicProperty) [],
+         shares = 1000,
+         level = 'normal'
+      },
+      reservation = 0
+   },
+   diskObjectId = '818-2000',
+   vFlashCacheConfigInfo = <unset>,
+   iofilter = (str) [],
+   vDiskId = <unset>
+}
+[20:47:54] [107m[30mINFO[0m Base controller key: 1000
+[20:47:54] [107m[30mINFO[0m lsi device: (vim.vm.device.VirtualLsiLogicController) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   key = 1000,
+   deviceInfo = (vim.Description) {
+      dynamicType = <unset>,
+      dynamicProperty = (vmodl.DynamicProperty) [],
+      label = 'SCSI controller 0',
+      summary = 'LSI Logic'
+   },
+   backing = <unset>,
+   connectable = <unset>,
+   slotInfo = (vim.vm.device.VirtualDevice.PciBusSlotInfo) {
+      dynamicType = <unset>,
+      dynamicProperty = (vmodl.DynamicProperty) [],
+      pciSlotNumber = 16
+   },
+   controllerKey = 100,
+   unitNumber = 3,
+   busNumber = 0,
+   device = (int) [
+      2000
+   ],
+   hotAddRemove = true,
+   sharedBus = 'noSharing',
+   scsiCtlrUnitNumber = 7
+}
+[20:47:54] [107m[30mINFO[0m Base controller bus number: 0
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:_getPrimaryDiskControllerId()[0m
+[20:47:54] [107m[30mINFO[0m _vm:VM([datastore1] HBRQA/Gemini/Sources/ProtectedMachine0/ProtectedMachine0.vmx, ProtectedMachine0)
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.disk.Disk:configure()[0m
+[20:47:54] [107m[30mINFO[0m datastorePath:[datastore1] HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk
+[20:47:54] [107m[30mINFO[0m fullPath:/vmfs/volumes/datastore1/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk
+[20:47:54] [38;5;245mDEBUG configured Disk:str:
+   index: 0
+   name: 'Disk0'
+   Disk: <lib.framework.disk.Disk object at 0x7f946b04a250>
+   adapterType: 'lsiLogic'
+   controllerType: 'scsi'
+   datastorePath: '[datastore1] HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk'
+   fileName: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk'
+   format: 'thick'
+   fullPath: '/vmfs/volumes/datastore1/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk'
+   machine: <lib.lwrdo.protected_machine.ProtectedMachine object at 0x7f946b04aa10>
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0'
+   size: 100000
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.disk.Disk:configure()[0m
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:configure()[0m
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica.Replica:configure()[0m
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica_disk.ReplicaDisk:configure()[0m
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica_disk.ReplicaDisk:configure()[0m
+[20:47:54] [107m[30mINFO[0m datastorePath:[datastore1] HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk
+[20:47:54] [107m[30mINFO[0m fullPath:/vmfs/volumes/datastore1/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica_disk.ReplicaDisk:configure()[0m
+[20:47:54] [38;5;245mDEBUG configured ReplicaDisk:str:
+   index: 0
+   name: 'Disk0'
+   Disk: <lib.framework.disk.Disk object at 0x7f946b04a250>
+   adapterType: 'lsiLogic'
+   controllerType: 'scsi'
+   datastorePath: '[datastore1] HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk'
+   fileName: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk'
+   format: 'thick'
+   fullPath: '/vmfs/volumes/datastore1/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk'
+   machine: <lib.lwrdo.protected_machine.ProtectedMachine object at 0x7f946b04aa10>
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas'
+   size: 100000
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica_disk.ReplicaDisk:configure()[0m
+[20:47:54] [38;5;245mDEBUG configured Replica:str:
+   index: 0
+   name: 'Replica0'
+   Replica: <lib.framework.replica.Replica object at 0x7f946b04a0d0>
+   machine: <lib.lwrdo.protected_machine.ProtectedMachine object at 0x7f946b04aa10>
+   path: 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas'
+   disks: [
+      <lib.lwrdo.replica_disk.ReplicaDisk object at 0x7f946b04a950>,
+   ]
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica.Replica:configure()[0m
+[20:47:54] [38;5;245mDEBUG configured ProtectedMachine:str:
+   index: 0
+   name: 'ProtectedMachine0'
+   Machine: <lib.framework.protected_machine.ProtectedMachine object at 0x7f946b04a3d0>
+   ProtectedMachine: <lib.framework.protected_machine.ProtectedMachine object at 0x7f946b04a3d0>
+   ReplicationGroup: <lib.framework.replication_group.ReplicationGroup object at 0x7f946b04a210>
+   baseDiskName: 'ProtectedMachine0-basedisk.vmdk'
+   enabled: True
+   fileName: '/vmfs/volumes/datastore1/HBRQA/Gemini/Sources/ProtectedMachine0/ProtectedMachine0.vmx'
+   filePath: '/vmfs/volumes/datastore1/HBRQA/Gemini/Sources/ProtectedMachine0'
+   filePathDatastore: None
+   id: 818
+   initialPowerState: 'PoweredOn'
+   ip: 123
+   path: None
+   pathName: '[datastore1] HBRQA/Gemini/Sources/ProtectedMachine0/ProtectedMachine0.vmx'
+   replica: <lib.lwrdo.replica.Replica object at 0x7f946b04a8d0>
+   replicationGroup: <lib.lwrdo.replication_group.ReplicationGroup object at 0x7f946b04a450>
+   disks: [
+      <lib.lwrdo.disk.Disk object at 0x7f946b04a790>,
+   ]
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:configure()[0m
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[1m[38;5;64mEND: lib.framework.Factory:configure()[0m
+[20:47:54] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                      Post-Initialization phase                      
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:54] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                          Verification phase                         
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[1m[38;5;76mBEGIN: lib.framework.Factory:check()[0m
+[20:47:54] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                        Checking Esxs, count:1                       
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.esx.Esx:check()[0m
+[20:47:54] [38;5;245mDEBUG self.tools:{'disk_tool': '/sbin/diskTool', 'hbrpsftool': '/sbin/hbrpsftool', 'disk_create': '/sbin/diskCreate'}
+[20:47:57] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ 10.20.108.246: ERROR: :Operation not permitted
+[20:47:57] [107m[30mINFO[0m Found hbr_filter
+[20:47:57] [38;5;245mDEBUG generateId: OP-e47-065b3dac006b
+[20:47:58] [38;5;245mDEBUG remoteStorage.MakeDirectory: HBRQA/Gemini/TestDemandWithTwoDisks
+[20:47:58] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Folder already exists: HBRQA/Gemini/TestDemandWithTwoDisks
+(vim.fault.FileAlreadyExists) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   msg = 'Cannot complete the operation because the file or folder [] /vmfs/volumes/55368e50-9b9fe000-be4d-549f352378ac/HBRQA/Gemini/TestDemandWithTwoDisks already exists',
+   faultCause = <unset>,
+   faultMessage = (vmodl.LocalizableMessage) [],
+   file = '[] /vmfs/volumes/55368e50-9b9fe000-be4d-549f352378ac/HBRQA/Gemini/TestDemandWithTwoDisks'
+}
+[20:47:58] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.esx.Esx:check()[0m
+[20:47:58] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                             Checking Hbr                            
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:58] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.hbr.Hbr:check()[0m
+[20:47:58] [107m[30mINFO[0m database: hbrsrv.56.db
+[20:47:58] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.hbr.Hbr:check()[0m
+[20:47:58] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                 Checking ReplicationGroups, count:1                 
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:58] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replication_group.ReplicationGroup:check()[0m
+[20:47:58] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replication_group.ReplicationGroup:disable()[0m
+[20:47:58] [38;5;245mDEBUG Machine was already powered on: ProtectedMachine0
+[20:47:58] [107m[30mINFO[0m Replication not enabled for: ProtectedMachine0 - (vim.fault.ReplicationVmFault) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   msg = 'vSphere Replication operation error: Virtual machine is not configured for replication.',
+   faultCause = <unset>,
+   faultMessage = (vmodl.LocalizableMessage) [],
+   reason = 'notConfigured',
+   state = <unset>,
+   instanceId = <unset>,
+   vm = 'vim.VirtualMachine:818'
+}
+[20:47:58] [107m[30mINFO[0m isReplicationEnabled False
+[20:47:58] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replication_group.ReplicationGroup:disable()[0m
+[20:47:58] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replication_group.ReplicationGroup:check()[0m
+[20:47:58] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                 Checking ProtectedMachines, count:2                 
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:47:58] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:check()[0m
+[20:47:58] [107m[30mINFO[0m path:HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0
+[20:47:58] [38;5;245mDEBUG remoteStorage.MakeDirectory: HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0
+[20:47:58] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Folder already exists: HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0
+(vim.fault.FileAlreadyExists) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   msg = 'Cannot complete the operation because the file or folder [] /vmfs/volumes/55368e50-9b9fe000-be4d-549f352378ac/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0 already exists',
+   faultCause = <unset>,
+   faultMessage = (vmodl.LocalizableMessage) [],
+   file = '[] /vmfs/volumes/55368e50-9b9fe000-be4d-549f352378ac/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0'
+}
+[20:47:58] [107m[30mINFO[0m replica.path:HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas
+[20:47:58] [38;5;245mDEBUG remoteStorage.MakeDirectory: HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas
+[20:47:58] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Folder already exists: HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas
+(vim.fault.FileAlreadyExists) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   msg = 'Cannot complete the operation because the file or folder [] /vmfs/volumes/55368e50-9b9fe000-be4d-549f352378ac/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas already exists',
+   faultCause = <unset>,
+   faultMessage = (vmodl.LocalizableMessage) [],
+   file = '[] /vmfs/volumes/55368e50-9b9fe000-be4d-549f352378ac/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas'
+}
+[20:47:58] [107m[30mINFO[0m replica.ReplicationGroup:str:
+   index: 0
+   name: 'ReplicationGroup0'
+   ReplicationGroup: <lib.framework.replication_group.ReplicationGroup object at 0x7f946b04a210>
+   autoStart: True
+   enableNetworkCompression: False
+   enableOpportunistic: False
+   enableQuiescing: False
+   group: None
+   lwdPort: 31031
+   rpo: 30
+   specification: None
+   protectedMachines: [
+      <lib.lwrdo.protected_machine.ProtectedMachine object at 0x7f946b04aa10>,
+   ]
+[20:47:58] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:check()[0m
+[20:47:58] [38;5;245mDEBUG IsRunnint()=True
+[20:47:59] [38;5;245mDEBUG ReportState()=VM: ProtectedMachine0(564d403e-b2ca-35e3-1426-8a21cdb72ae6) is poweredOn connection state: connected
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.disk.Disk:check()[0m
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.disk.Disk:_getDiskDevice()[0m
+[20:47:59] [38;5;245mDEBUG _getDiskDevice: [datastore1] HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk
+[20:47:59] [38;5;245mDEBUG _getDevice path: [datastore1] HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk 
+[20:47:59] [38;5;237mVV disk device [datastore1] HBRQA/Gemini/Sources/ProtectedMachine0/ProtectedMachine0-basedisk.vmdk
+[20:47:59] [107m[30mINFO[0m Did not find match: [datastore1] HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk
+[20:47:59] [107m[30mINFO[0m disk not found: [datastore1] HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.disk.Disk:_getDiskDevice()[0m
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.protected_machine.ProtectedMachine:getNextUnitNumber()[0m
+[20:47:59] [38;5;245mDEBUG _unitNumber 1
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:getNextUnitNumber()[0m
+[20:47:59] [107m[30mINFO[0m _unitNumber:1
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.disk.Disk:_dettach()[0m
+[20:47:59] [107m[30mINFO[0m No disk key to dettach
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.disk.Disk:_dettach()[0m
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.disk.Disk:_delete()[0m
+[20:47:59] [38;5;245mDEBUG _delete: HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk
+[20:47:59] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Disk file not found: HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk
+(vim.fault.FileNotFound) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   msg = 'File /vmfs/volumes/55368e50-9b9fe000-be4d-549f352378ac/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk was not found',
+   faultCause = <unset>,
+   faultMessage = (vmodl.LocalizableMessage) [],
+   file = '/vmfs/volumes/55368e50-9b9fe000-be4d-549f352378ac/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Disk0.vmdk'
+}
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.disk.Disk:_delete()[0m
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.disk.Disk:check()[0m
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:check()[0m
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica.Replica:check()[0m
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica_disk.ReplicaDisk:check()[0m
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica_disk.ReplicaDisk:_dettach()[0m
+[20:47:59] [38;5;245mDEBUG _dettach: /vmfs/volumes/datastore1/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk
+[20:47:59] [38;5;245mDEBUG 10.20.108.246:run: vim-cmd hbrsvc/vmreplica.diskDisable 818 None
+[20:47:59] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ 10.20.108.246: ERROR: :Operation not permitted
+[20:47:59] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ esx error for: _dettach vmreplica.diskDisable 
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica_disk.ReplicaDisk:_dettach()[0m
+[20:47:59] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica_disk.ReplicaDisk:_delete()[0m
+[20:47:59] [38;5;245mDEBUG _delete: HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk
+[20:48:00] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Disk file not found: HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk
+(vim.fault.FileNotFound) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   msg = 'File /vmfs/volumes/55368e50-9b9fe000-be4d-549f352378ac/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk was not found',
+   faultCause = <unset>,
+   faultMessage = (vmodl.LocalizableMessage) [],
+   file = '/vmfs/volumes/55368e50-9b9fe000-be4d-549f352378ac/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk'
+}
+[20:48:00] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica_disk.ReplicaDisk:_delete()[0m
+[20:48:00] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica_disk.ReplicaDisk:check()[0m
+[20:48:00] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica.Replica:check()[0m
+[20:48:00] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.protected_machine.ProtectedMachine:check()[0m
+[20:48:00] [38;5;18mFUNCTION[38;5;252m 	[1m[38;5;64mEND: lib.framework.Factory:check()[0m
+[20:48:00] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                        Object creation phase                        
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:48:00] [38;5;18mFUNCTION[38;5;252m 	[1m[38;5;76mBEGIN: lib.framework.Factory:create()[0m
+[20:48:00] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+             Creating dependent objects for Esxs, count:1            
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:48:00] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.esx.Esx:create()[0m
+[20:48:00] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.esx.Esx:create()[0m
+[20:48:00] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+                  Creating dependent objects for Hbr                 
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:48:00] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.hbr.Hbr:create()[0m
+[20:48:00] [107m[30mINFO[0m Creating server connection to: 10.20.109.62
+[20:48:00] [38;5;245mDEBUG connection:hbrsrv[10.20.109.62]
+[20:48:00] [38;5;245mDEBUG replicationManager:'hbr.replica.ReplicationManager:HbrServer'
+[20:48:00] [38;5;245mDEBUG sessionManager:'hbr.replica.SessionManager:HbrSessionManager'
+[20:48:00] [38;5;245mDEBUG storageManager:'hbr.replica.StorageManager:HbrStorageManager'
+[20:48:00] [38;5;245mDEBUG serverManager:'hbr.replica.ServerManager:HbrServerManager'
+[20:48:01] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Log file /var/log/messages not found in host: 10.20.109.62
+[20:48:02] [107m[30mINFO[0m Setting thumbprint...
+[20:48:02] [107m[30mINFO[0m Restarting HBR Server...
+[20:48:05] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Log file /var/log/vmware/hbrsrv.log not found in host: 10.20.109.62
+[20:48:06] [107m[30mINFO[0m Creating server connection to: 10.20.109.62
+[20:48:07] [38;5;245mDEBUG connection:hbrsrv[10.20.109.62]
+[20:48:07] [38;5;245mDEBUG replicationManager:'hbr.replica.ReplicationManager:HbrServer'
+[20:48:07] [38;5;245mDEBUG sessionManager:'hbr.replica.SessionManager:HbrSessionManager'
+[20:48:07] [38;5;245mDEBUG storageManager:'hbr.replica.StorageManager:HbrStorageManager'
+[20:48:07] [38;5;245mDEBUG serverManager:'hbr.replica.ServerManager:HbrServerManager'
+[20:48:07] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Log file /var/log/messages not found in host: 10.20.109.62
+[20:48:07] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Log file /var/log/vmware/hbrsrv.log not found in host: 10.20.109.62
+[20:48:08] [107m[30mINFO[0m Found hbrsrv-bin process
+[20:48:09] [107m[30mINFO[0m LWD Protocol version: "20.7"
+[20:48:09] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.hbr.Hbr:stop()[0m
+[20:48:09] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.hbr.Hbr:stopServer()[0m
+[20:48:10] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Log file /var/log/messages not found in host: 10.20.109.62
+[20:48:11] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.hbr.Hbr:stopServer()[0m
+[20:48:11] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.hbr.Hbr:stop()[0m
+[20:48:12] [38;5;245mDEBUG 10.20.109.62:get: remote:"/tmp/hbrsrv.56.db.0.0.pre" -> local:"/tmp/results/tmp"
+[20:48:12] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.hbr.Hbr:startServer()[0m
+[20:48:14] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Log file /var/log/vmware/hbrsrv.log not found in host: 10.20.109.62
+[20:48:14] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.hbr.Hbr:startServer()[0m
+[20:48:14] [107m[30mINFO[0m Creating server connection to: 10.20.109.62
+[20:48:15] [38;5;245mDEBUG connection:hbrsrv[10.20.109.62]
+[20:48:15] [38;5;245mDEBUG replicationManager:'hbr.replica.ReplicationManager:HbrServer'
+[20:48:15] [38;5;245mDEBUG sessionManager:'hbr.replica.SessionManager:HbrSessionManager'
+[20:48:15] [38;5;245mDEBUG storageManager:'hbr.replica.StorageManager:HbrStorageManager'
+[20:48:15] [38;5;245mDEBUG serverManager:'hbr.replica.ServerManager:HbrServerManager'
+[20:48:16] [38;5;245mDEBUG 10.20.109.62:get: remote:"/tmp/messages" -> local:"/tmp/messages"
+[20:48:16] [48;5;238m[38;5;39mHBR_LOG /var/log/messages
+2015-07-31T22:47:10+00:00 promc-2s-109-dhcp62 sshd[32682]: Accepted password for root from 10.20.108.118 port 51455 ssh2
+2015-07-31T22:47:11+00:00 promc-2s-109-dhcp62 sshd[32685]: Accepted password for root from 10.20.108.118 port 51456 ssh2
+
+[0m[20:48:16] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Log file /var/log/messages not found in host: 10.20.109.62
+[20:48:17] [38;5;245mDEBUG generateId: OP-11c-90fce5d4ecc3
+[20:48:17] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.service.hbr_control.HbrControl:stats()[0m
+[20:48:18] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.service.hbr_control.HbrControl:stats()[0m
+[20:48:18] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.service.hbr_control.HbrControl:removeHost()[0m
+[20:48:18] [38;5;245mDEBUG Host 10.20.108.246 not found.
+[20:48:18] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.service.hbr_control.HbrControl:removeHost()[0m
+[20:48:18] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.service.hbr_control.HbrControl:addEsxHost()[0m
+[20:48:18] [38;5;245mDEBUG Added hbrsrv thumbprint 17:E7:52:59:10:2F:C5:90:9C:EB:75:70:B5:ED:C2:F7:AF:20:8F:5E to 10.20.108.246
+[20:48:19] [38;5;245mDEBUG Added Thumbprint HostInfo 42:3A:3A:F7:80:ED:41:E4:2C:0C:79:97:5F:32:5A:47:90:F9:2C:5F for 10.20.108.246
+[20:48:19] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.service.hbr_control.HbrControl:addEsxHost()[0m
+[20:48:19] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.service.hbr_control.HbrControl:details()[0m
+[20:48:19] [107m[30mINFO[0m    vmodlVersion: 0.17.6
+[20:48:19] [107m[30mINFO[0m      lwdVersion: 20.7
+[20:48:19] [107m[30mINFO[0m    instanceUUID: 52856554-e917-f21f-3307-6601ecaff8fc
+[20:48:19] [107m[30mINFO[0m    instanceName: promc-2s-109-dhcp62
+[20:48:19] [107m[30mINFO[0m     buildNumber: 2882837
+[20:48:19] [107m[30mINFO[0m       buildDate: Jul  8 2015
+[20:48:19] [107m[30mINFO[0m       buildType: Release
+[20:48:19] [107m[30mINFO[0m buildIdentifier: 862ef0e5710b727c70953ba54e88c456
+[20:48:19] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.service.hbr_control.HbrControl:details()[0m
+[20:48:19] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.hbr.Hbr:create()[0m
+[20:48:19] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+      Creating dependent objects for ReplicationGroups, count:1      
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:48:19] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replication_group.ReplicationGroup:create()[0m
+[20:48:31] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replication_group.ReplicationGroup:createSpecification()[0m
+[20:48:45] [38;5;245mDEBUG generateId: REPL-932-450b978d4528
+[20:49:17] [38;5;245mDEBUG generateId: REPLDSK-f8dee7a80c
+[20:49:17] [38;5;245mDEBUG ReplicaDisk specification: (hbr.replica.DiskSpec) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   diskIdent = (hbr.replica.IdentSpec) {
+      dynamicType = <unset>,
+      dynamicProperty = (vmodl.DynamicProperty) [],
+      id = 'REPLDSK-f8dee7a80c-CFG1-GID',
+      datastoreUUID = '55368e50-9b9fe000-be4d-549f352378ac',
+      pathname = 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk'
+   }
+}
+[20:49:37] [38;5;245mDEBUG Replica specification: (hbr.replica.VirtualMachineSpec) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   virtualMachineIdent = (hbr.replica.IdentSpec) {
+      dynamicType = <unset>,
+      dynamicProperty = (vmodl.DynamicProperty) [],
+      id = 'REPL-932-450b978d4528-CFG0-GID',
+      datastoreUUID = '55368e50-9b9fe000-be4d-549f352378ac',
+      pathname = 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/'
+   },
+   replicatedDisks = (hbr.replica.DiskSpec) [
+      (hbr.replica.DiskSpec) {
+         dynamicType = <unset>,
+         dynamicProperty = (vmodl.DynamicProperty) [],
+         diskIdent = (hbr.replica.IdentSpec) {
+            dynamicType = <unset>,
+            dynamicProperty = (vmodl.DynamicProperty) [],
+            id = 'REPLDSK-f8dee7a80c-CFG1-GID',
+            datastoreUUID = '55368e50-9b9fe000-be4d-549f352378ac',
+            pathname = 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk'
+         }
+      }
+   ]
+}
+[20:49:50] [38;5;15m
+______________________________________________________________________
+░░░░░░░░░░░░░░░░░░░░   - - -   N O T E   - - -   ░░░░░░░░░░░░░░░░░░░░░
+ Replication Group specification: (hbr.replica.GroupSpec) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   id = 'REPL-932-450b978d4528-CFG0-GID',
+   rpo = 30,
+   vms = (hbr.replica.VirtualMachineSpec) [
+      (hbr.replica.VirtualMachineSpec) {
+         dynamicType = <unset>,
+         dynamicProperty = (vmodl.DynamicProperty) [],
+         virtualMachineIdent = (hbr.replica.IdentSpec) {
+            dynamicType = <unset>,
+            dynamicProperty = (vmodl.DynamicProperty) [],
+            id = 'REPL-932-450b978d4528-CFG0-GID',
+            datastoreUUID = '55368e50-9b9fe000-be4d-549f352378ac',
+            pathname = 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/'
+         },
+         replicatedDisks = (hbr.replica.DiskSpec) [
+            (hbr.replica.DiskSpec) {
+               dynamicType = <unset>,
+               dynamicProperty = (vmodl.DynamicProperty) [],
+               diskIdent = (hbr.replica.IdentSpec) {
+                  dynamicType = <unset>,
+                  dynamicProperty = (vmodl.DynamicProperty) [],
+                  id = 'REPLDSK-f8dee7a80c-CFG1-GID',
+                  datastoreUUID = '55368e50-9b9fe000-be4d-549f352378ac',
+                  pathname = 'HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk'
+               }
+            }
+         ]
+      }
+   ],
+   retentionPolicy = <unset>,
+   tieredRetentionPolicy = <unset>
+}
+[38;5;15m≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡[0m
+[20:49:55] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replication_group.ReplicationGroup:createSpecification()[0m
+[20:50:01] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replication_group.ReplicationGroup:createGroup()[0m
+[20:50:12] [107m[30mINFO[0m group:'hbr.replica.ReplicationGroup:Hbr.Replica.ReplicationGroup.REPL-932-450b978d4528-CFG0-GID'
+[20:50:25] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replication_group.ReplicationGroup:createGroup()[0m
+[20:50:35] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replication_group.ReplicationGroup:enable()[0m
+[20:50:36] [38;5;245mDEBUG Machine was already powered on: ProtectedMachine0
+[20:50:40] [107m[30mINFO[0m Replication not enabled for: ProtectedMachine0 - (vim.fault.ReplicationVmFault) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   msg = 'vSphere Replication operation error: Virtual machine is not configured for replication.',
+   faultCause = <unset>,
+   faultMessage = (vmodl.LocalizableMessage) [],
+   reason = 'notConfigured',
+   state = <unset>,
+   instanceId = <unset>,
+   vm = 'vim.VirtualMachine:818'
+}
+[20:50:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica.Replica:enable()[0m
+[20:50:55] [38;5;245mDEBUG 10.20.108.246:run: vim-cmd hbrsvc/vmreplica.enable 818 30 10.20.109.62 31031 False False False REPL-932-450b978d4528-CFG0-GID
+[20:50:56] [38;5;245mDEBUG 10.20.108.246:result OK
+[20:50:56] [48;5;242m[38;5;224mREMOTE_OUTPUT esx: enable vmreplica.enable stdout: Enable VM Replication:
+[0m[20:50:56] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica_disk.ReplicaDisks:disable()[0m
+[20:50:56] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica_disk.ReplicaDisk:_dettach()[0m
+[20:50:56] [38;5;245mDEBUG _dettach: /vmfs/volumes/datastore1/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk
+[20:50:56] [38;5;245mDEBUG 10.20.108.246:run: vim-cmd hbrsvc/vmreplica.diskDisable 818 None
+[20:50:56] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ 10.20.108.246: ERROR: :Operation not permitted
+[20:50:56] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ esx error for: _dettach vmreplica.diskDisable 
+[20:50:56] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica_disk.ReplicaDisk:_dettach()[0m
+[20:50:56] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica_disk.ReplicaDisks:disable()[0m
+[20:50:56] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica_disk.ReplicaDisks:enable()[0m
+[20:50:56] [38;5;18mFUNCTION[38;5;252m 	[38;5;208mBEGIN: lib.lwrdo.replica_disk.ReplicaDisk:_attach()[0m
+[20:50:56] [38;5;245mDEBUG _attach: REPL-932-450b978d4528-CFG0-GID /vmfs/volumes/datastore1/HBRQA/Gemini/TestDemandWithTwoDisks/ProtectedMachine0/Replicas/Disk0.vmdk
+[20:50:56] [38;5;245mDEBUG 10.20.108.246:run: vim-cmd hbrsvc/vmreplica.diskEnable 818 None REPLDSK-f8dee7a80c-CFG1-GID
+[20:50:57] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ 10.20.108.246: ERROR: :Operation not permitted
+[20:50:57] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ esx error for: _attach vmreplica.diskEnable 
+[20:50:57] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica_disk.ReplicaDisk:_attach()[0m
+[20:50:57] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica_disk.ReplicaDisks:enable()[0m
+[20:50:57] [38;5;245mDEBUG _dettach key: 2000
+[20:50:57] [38;5;245mDEBUG 10.20.108.246:run: vim-cmd hbrsvc/vmreplica.diskDisable 818 2000
+[20:50:59] [38;5;245mDEBUG 10.20.108.246:result OK
+[20:50:59] [48;5;242m[38;5;224mREMOTE_OUTPUT esx: _dettach vmreplica.diskDisable stdout: Disable Disk Replication:
+	Disk scsi0:0 (device key = 2000)
+[0m[20:51:00] [38;5;224m
+______________________________________________________________________
+░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░  DISREGARD ERROR  ░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓░▓
+ Log file /var/log/messages not found in host: 10.20.109.62
+[20:51:26] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replica.Replica:enable()[0m
+[20:51:40] [38;5;245mDEBUG 10.20.108.246:run: vim-cmd hbrsvc/vmreplica.getState 818
+[20:51:40] [38;5;245mDEBUG 10.20.108.246:result OK
+[20:51:40] [48;5;242m[38;5;224mREMOTE_OUTPUT esx: getState vmreplica.getState stdout: Retrieve VM running replication state:
+	The VM is configured for replication. Current replication state: Group: REPL-932-450b978d4528-CFG0-GID (generation=3501515266148079)
+	Group State: inactive
+[0m[20:51:44] [107m[30mINFO[0m config: (vim.vm.ReplicationConfigSpec) {
+   dynamicType = <unset>,
+   dynamicProperty = (vmodl.DynamicProperty) [],
+   generation = 2L,
+   vmReplicationId = 'REPL-932-450b978d4528-CFG0-GID',
+   destination = '10.20.109.62',
+   port = 31031,
+   rpo = 30L,
+   quiesceGuestEnabled = false,
+   paused = false,
+   oppUpdatesEnabled = false,
+   netCompressionEnabled = false,
+   disk = (vim.vm.ReplicationConfigSpec.DiskSettings) []
+}
+[20:51:49] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replication_group.ReplicationGroup:enable()[0m
+[20:51:54] [38;5;18mFUNCTION[38;5;252m 	[38;5;94mEND: lib.lwrdo.replication_group.ReplicationGroup:create()[0m
