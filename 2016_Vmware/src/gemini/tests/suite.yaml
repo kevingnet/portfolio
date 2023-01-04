@@ -1,0 +1,27 @@
+Esxs: 
+  - Esx:
+    ip: 10.20.108.246
+    datastore: *id_datastore
+    credentials: *id_Esx_credentials 
+    Hbr: *id_Hbr
+  - Esx: &id_Esx1
+    enabled: False
+    name: eng_vadpqe_us_1-2015.08.03-12.26.33.esx.0
+    ip: 10.161.60.71
+    datastore: *id_datastore0
+    credentials: *id_Esx_credentials 
+    Hbr: *id_Hbr
+  - Esx: &id_Esx2
+    enabled: False
+    name: eng_vadpqe_us_1-2015.08.03-12.26.33.esx.1
+    ip: 10.161.32.166
+    datastore: *id_datastore1
+    credentials: *id_Esx_credentials 
+    Hbr: *id_Hbr
+
+ProtectedMachines:
+
+ReplicationGroups:
+  - ReplicationGroup:
+      enabled: False
+      

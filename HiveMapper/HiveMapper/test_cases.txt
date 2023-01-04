@@ -1,0 +1,28 @@
+E 0 +
+E 1
+21.6
+GO (21.6)
+DONE! Fixed by adding extra case src=dst
+
+E 0 -
+E 359
+21.6
+GO (21.6)
+DONE! Fixed
+
+E 0 +
+B 359
+6.8
+REVERSE (0.3)
+TRANSFER B (0.1)
+GO (6.4)
+
+E 350 -
+B 350
+246.7
+REVERSE (0.3)
+GO (196.3)
+STOP (4.0)
+REVERSE (0.3)
+TRANSFER B (0.1)
+GO (45.6)

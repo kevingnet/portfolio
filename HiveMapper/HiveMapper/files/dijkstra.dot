@@ -1,0 +1,46 @@
+digraph D {
+  rankdir=LR
+  size="14,14"
+  ratio="fill"
+  edge[style="solid"]
+  node[shape="circle"  width=0.5 fontcolor=black fontsize=16 fixedsize=true width=1.0  height=1.0 ]
+	{rank=same;  A0 A180 }
+	{rank=same;  B180 B0 }
+	{rank=same;  C0 C180 }
+	{rank=same;  D0 D180 }
+	{rank=same;  E0 E180 }
+	A0 [label="A0", color="blue", penwidth=3.0, shape=circle]
+	A180 [label="A180", color="blue", penwidth=3.0, shape=circle]
+	B0 [label="B0", color="blue", penwidth=3.0, shape=circle]
+	B180 [label="B180", color="blue", penwidth=3.0, shape=circle]
+
+	A180[label="A180", color="blue", penwidth=2.0, shape=doublecircle fontcolor=blue fontsize=22 ]
+	B0 [label="B0", color="blue", penwidth=2.0, shape=doubleoctagon fontcolor=blue fontsize=22]
+
+A0 -> A180	[label="7740", penwidth=0.5 color="black"]
+A180 -> A0	[label="", penwidth=3.0 color="blue"]
+B0 -> B180	[label="3060", penwidth=0.5 color="black"]
+B180 -> B0	[label="", penwidth=3.0 color="blue"]
+C0 -> C180	[label="3060", penwidth=0.5 color="black"]
+C180 -> C0	[label="", penwidth=0.5 color="black"]
+D0 -> D180	[label="10980", penwidth=0.5 color="black"]
+D180 -> D0	[label="", penwidth=0.5 color="black"]
+E0 -> E180	[label="14040", penwidth=0.5 color="black"]
+E180 -> E0	[label="", penwidth=0.5 color="black"]
+B180 -> A0	[label="TRANSFER", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+D0 -> A0	[label="TRANSFER", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+C0 -> A180	[label="TRANSFER", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+E0 -> B0	[label="TRANSFER", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+A0 -> B180	[label="", fontcolor=gray fontsize=12 style=dashed penwidth=1.0 color="blue"]
+D0 -> B180	[label="TRANSFER", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+A180 -> C0	[label="", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+D180 -> C180	[label="TRANSFER", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+E180 -> C180	[label="TRANSFER", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+A0 -> D0	[label="", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+B180 -> D0	[label="", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+C180 -> D180	[label="", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+E180 -> D180	[label="TRANSFER", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+B0 -> E0	[label="", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+C180 -> E180	[label="", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+D180 -> E180	[label="", fontcolor=gray fontsize=12 style=dotted penwidth=1.5 color="black"]
+}

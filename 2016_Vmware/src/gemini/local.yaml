@@ -1,0 +1,21 @@
+
+framework:
+  <<: *id_framework
+  resultsPath: /tmp/results
+  
+Hbr_credentials: &Hbr_credentials
+  <<: *id_Hbr_credentials
+  user: root
+  password: pwd
+
+HBR_IP : &id_Hbr_ip 10.20.109.93
+ESX_IP : &id_Esx_ip 10.20.108.246
+ESX_IP0 : &id_Esx_ip0 10.161.60.71
+ESX_IP1 : &id_Esx_ip1 10.161.32.166
+
+$DATASTORE : datastore1
+$DATASTORE_UUID : 55368e50-9b9fe000-be4d-549f352378ac
+$DATASTORE0 : sharedVmfs-0
+$DATASTORE_UUID0 : 55bfb8c2-a0ff38c7-4f90-020013b3806f
+$DATASTORE1 : sharedVmfs-0
+$DATASTORE_UUID1 : 55bfb8c2-a0ff38c7-4f90-020013b3806f

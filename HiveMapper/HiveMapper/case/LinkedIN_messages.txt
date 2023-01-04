@@ -1,0 +1,81 @@
+Dec 12
+John Gregorski sent the following message at 5:09 PM
+View John’s profile John Gregorski
+Hi Kevin. Don't have much space in this message unfortunately, but we're hiring and thought you'd like what we're up to: a living 3-d map from aerial video using computer vision and geospatial tech, a bit like Google Earth. https://tinyurl.com/m4hmbs7 Happy to chat if it's interesting to you!
+- John
+5:09 PM
+Dec 18
+John Gregorski is now a connection
+Kevin Guerra sent the following messages at 12:56 PM
+Of course, I'm very interested, Google Earth was a great product and I'd be happy to contribute to your effort. As it turned out, when GE was decommissioned there was no viable alternative, except Google Maps but it's not the same thing. Let me know what's on your mind. This may have to be quick because I've been considering moving to Oregon, but I'd stay for something like what you're doing....
+Btw, I'm sure you know, but GE has been opensourced, I have some pretty good knowledge on how it works...
+12:59 PM
+John Gregorski sent the following message at 3:36 PM
+View John’s profile John Gregorski
+Whoa, it is open sourced! That's cool. One of our advisors was one of the founders of Keyhole, actually. He's given us great advice where to take the product and business.
+
+The technology we're building consumes aerial video (from drones, for example), reconstructs the 3-d scene, and georegisters it on a global map. The 3-d map is flyable like GE but can be much more detailed according to the video.
+
+Here are Stanford and SF, for example, which we built from drone videos which we took (that itself was quite an experience :).
+
+https://hivemapper.com/3d/-2699995/-4292678/3855682/-162/38/hfov_76.652/vfov_47.250
+https://hivemapper.com/3d/-2704148/-4260224/3889164/-179/23/hfov_76.652/vfov_47.250
+
+Our customers have vast amounts of aerial video which they need to search and analyze easily, and having their videos in 3-d map form enables them to do that. It's a completely different experience to navigate a video in 3-d.
+
+I work on the backend team, and that's where I was thinking you'd be interested, but I have a feeling you could contribute to other areas as well.
+
+Our backend role focuses on building the distributed system to process videos and on implementing core product functionality. The languages we use are C++, Node.js, and some Python. There are a lot of features on our roadmap for scaling the processing pipeline and improving its robustness, and for all the 3-d map features. Here's more info on it:
+
+https://angel.co/hivemapper/jobs/289787-senior-backend-engineer
+
+Also check out our other roles too:
+
+https://angel.co/hivemapper/jobs
+
+Want to chat on the phone and discuss more? Just might be interesting enough to keep you in California.
+3:36 PM
+Kevin Guerra sent the following message at 4:17 PM
+Hi John, backend is good enough, and yes I would be happy to contribute in other areas as needed. You may contact me anytime 669 264 1766. Kevin.
+4:17 PM
+Dec 19
+John Gregorski sent the following message at 10:26 AM
+View John’s profile John Gregorski
+Great! Let me call you at 11:30 today.
+10:26 AM
+Kevin Guerra sent the following message at 10:50 AM
+Sounds good
+10:50 AM
+John Gregorski sent the following message at 5:59 PM
+View John’s profile John Gregorski
+Hi Kevin. Thanks again for chatting this afternoon. Here's the programming challenge I mentioned. Feel free to use any language you like, but preferably C++, Python, or Javascript. Let me know if you have any questions about it. Please have your solution to us by next Tuesday. Enjoy, and happy holidays!
+Forward attachment
+Download Hivemapper-Coding-Question.pdf
+PDF
+Hivemapper-Coding-Question.pdf
+222 KB
+5:59 PM
+Kevin Guerra sent the following messages at 9:33 PM
+Thanks
+Hi John, I didn't see the attachment, can you send via email, just in case kevingnet@gmail.com, thanks...
+Dec 22
+Hi John, just a heads up. I've been working on the assignment since Dec 20th, at about 6pm, since that's when I finished the previous assignment for Chase bank. I think I have the solution, I'll try first the naive (brute force) method and later (if time allows) implement Dijkstra's algorithm or another variant. It seems to be a weighted graphics problem. So far, I have the code and class objects for parsing and storing the data structures for the graph, although at this time they're rather elaborate. I think I'm in the meaty part now. It's going to be fun. Is there a timeline you had in mind for the assignment? Is there a time limit?
+Just in case you wanted to take a look... this is the previous assignment, it's Conway's game of life. I've implemented it in Java. https://github.com/kevingnet/GameOfLife/tree/master/GameOfLife
+8:50 AM
+John Gregorski sent the following message at 12:27 PM
+View John’s profile John Gregorski
+Cool, sounds like you're on the right track with the solution! Let me know if you have any questions or confusions as you go, and I'll do my best to answer them.
+
+Time wise, one week is usually the limit, i.e. next Wednesday the 27th, but given the holiday, next Friday the 29th is fine.
+
+Thanks for sending your Game of Life solution. I'll take a look.
+12:27 PM
+Kevin Guerra sent the following messages at 12:52 PM
+Thanks
+I'll try to finish earlier than that. I'll post the results in github and let you know when it's done. Let me know if that's ok or not. Or I can just email you the result. Thanks for giving extra time, this would allow me to clean up some of the code, since I have some unnecessary code. Happy Holidays!
+1:16 PM
+John Gregorski sent the following message at 2:37 PM
+View John’s profile John Gregorski
+If you can post it to Github privately, that's ok, but we'd prefer not publicly. Otherwise, email is fine.
+2:37 PM
+Read John Gregorski

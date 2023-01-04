@@ -1,0 +1,247 @@
+#╔════════════════════════════════════════════════════════════════════╗
+#║                           L O G G I N G                            ║
+#╚════════════════════════════════════════════════════════════════════╝
+logging: &id_logging
+    # do not remove lines, comment out a line to disable
+    levels:
+      # should be used
+      - LOGGING_LEVEL_FOOTER
+      - LOGGING_LEVEL_HEADER
+      - LOGGING_LEVEL_NOTE
+      - LOGGING_LEVEL_TEST
+      - LOGGING_LEVEL_TRACE
+      # 
+      - LOGGING_LEVEL_FUNCTION
+      - LOGGING_LEVEL_VERBOSE
+      - LOGGING_LEVEL_VVERBOSE
+      # optional
+      - LOGGING_LEVEL_REMOTE_OUTPUT
+      - LOGGING_LEVEL_REMOTE_VITALS
+      - LOGGING_LEVEL_REMOTE_LOGS
+      - LOGGING_LEVEL_ESX
+      - LOGGING_LEVEL_HBR
+      - LOGGING_LEVEL_MACHINE
+      #- LOGGING_LEVEL_ESX_LOG
+      #- LOGGING_LEVEL_HBR_LOG
+      #- LOGGING_LEVEL_IGNORED_ERROR
+    format: '[%(asctime)s] %(levelname)s [%(module)s:%(funcName)s()@%(lineno)d] %(message)s'
+    format_simple: '[%(asctime)s] %(levelname)s %(message)s'
+    format_date: '%H:%M:%S'
+
+#╔════════════════════════════════════════════════════════════════════╗
+#║                         F R A M E W O R K                          ║
+#╚════════════════════════════════════════════════════════════════════╝
+framework: &id_framework
+  resultsPath: /tmp/resultsZZZ
+  files: files
+  logs: logs
+  tmp: tmp
+  logFile: testcase.log
+  tools:
+    path: /automation/framework/launch/Tools
+    spaz: checkablespaz.py
+  vmtree: $VMTREE
+  
+#╔════════════════════════════════════════════════════════════════════╗
+#║                            S Y S T E M                             ║
+#╚════════════════════════════════════════════════════════════════════╝
+system: &id_system
+  enableNetworkCompression: False
+  
+#╔════════════════════════════════════════════════════════════════════╗
+#║                              H  B  R                               ║
+#╚════════════════════════════════════════════════════════════════════╝
+Hbr_credentials: &id_Hbr_credentials 
+  user: root
+  password: pwd
+ 
+HbrControl: &id_HbrControl
+    certificateGenerationScript: fakehms-generate-certificate.sh
+    certificateFile: fakehms.crt
+    keyFile: fakehms.key
+
+Hbr: &id_Hbr
+  Esx: 0
+  authentication:
+    certificate: 
+    key:
+    thumbprint: 
+  tools:
+    ioctl: /sbin/hbrfilterctl
+    hbrpsftool: /sbin/hbrpsftool
+  filter:
+    replicator: hbr_filter
+    sample: vscsi_example_filter
+  ip: 10.20.109.62
+  port: 8123
+  credentials: *id_Hbr_credentials
+  Machine:
+    name: hmsva
+  logs:
+    - /var/log/messages
+    - /var/log/hbrsrv.log
+  
+#╔════════════════════════════════════════════════════════════════════╗
+#║                              E  S  X                               ║
+#╚════════════════════════════════════════════════════════════════════╝
+Esx_credentials: &id_Esx_credentials 
+  user: root
+  password: ca$hc0w
+ 
+datastore: &id_datastore
+  name: $DATASTORE
+  uuid: $DATASTORE_UUID
+  root: 'HBRQA/Gemini'
+  machineSources: HBRQA/Gemini/Sources
+datastore0: &id_datastore0
+  name: $DATASTORE0
+  uuid: $DATASTORE_UUID0
+  root: 'HBRQA/Gemini'
+  machineSources: HBRQA/Gemini/Sources
+datastore1: &id_datastore1
+  name: $DATASTORE1
+  uuid: $DATASTORE_UUID1
+  root: 'HBRQA/Gemini'
+  machineSources: HBRQA/Gemini/Sources
+
+Esxs_defaults: &id_Esxs_defaults
+  tools:
+    disk_create: /sbin/diskCreate
+    disk_tool: /sbin/diskTool
+    hbrpsftool: /sbin/hbrpsftool
+  logs:
+    - /scratch/log/syslog.log
+    - /scratch/log/hostd.log
+    - /scratch/log/vobd.log
+    - /scratch/log/vmkernel.log
+Esxs: &id_Esxs
+  - Esx: &id_Esx0
+    ip: 10.20.108.246
+    datastore: *id_datastore
+    credentials: *id_Esx_credentials 
+    Hbr: *id_Hbr
+#  - Esx: &id_Esx1
+#    name: eng_vadpqe_us_1-2015.08.03-12.26.33.esx.0
+#    enabled: False
+#    ip: 10.161.60.71
+#    datastore: *id_datastore0
+#    credentials: *id_Esx_credentials 
+#    Hbr: *id_Hbr
+#  - Esx: &id_Esx2
+#    name: eng_vadpqe_us_1-2015.08.03-12.26.33.esx.1
+#    enabled: False
+#    ip: 10.161.32.166
+#    datastore: *id_datastore1
+#    credentials: *id_Esx_credentials 
+#    Hbr: *id_Hbr
+
+#╔════════════════════════════════════════════════════════════════════╗
+#║                  R E P L I C A T I O N   G R O U P                 ║
+#╚════════════════════════════════════════════════════════════════════╝
+ReplicationGroups_defaults:  
+  rpo: 30
+  lwdPort: 31031
+  enableQuiescing: False
+  enableOpportunistic: False
+  enableNetworkCompression: False
+  autoStart: True
+  Esx: 0
+  
+ReplicationGroups:
+  - ReplicationGroup:
+    enabled: True
+    
+#╔════════════════════════════════════════════════════════════════════╗
+#║                               D I S K                              ║
+#╚════════════════════════════════════════════════════════════════════╝
+# 1gb=1073741824 1tb=1099511627776 2tb=2199023255552
+Disks_defaults:  
+  isBaseDisk: False
+  size: 1073741824
+  format: thick #formats: thick zeroedthick
+  controllerType: scsi
+  adapterType: lsiLogic
+    
+#╔════════════════════════════════════════════════════════════════════╗
+#║                            M A C H I N E                           ║
+#╚════════════════════════════════════════════════════════════════════╝
+Machines_defaults:  
+      
+#╔════════════════════════════════════════════════════════════════════╗
+#║                            R E P L I C A                           ║
+#╚════════════════════════════════════════════════════════════════════╝
+Replicas_defaults:  
+      
+#╔════════════════════════════════════════════════════════════════════╗
+#║                              I M A G E                             ║
+#╚════════════════════════════════════════════════════════════════════╝
+Images_defaults:  
+  # failOver, testBubble
+  type: failOver
+  enabled: False
+  autoStart: False
+      
+#╔════════════════════════════════════════════════════════════════════╗
+#║                 P R O T E C T E D   M A C H I N E                  ║
+#╚════════════════════════════════════════════════════════════════════╝
+ProtectedMachines_defaults:  
+  autoStart: True
+  credentials:
+    user: root
+    password: ca$hc0w
+  ReplicationGroup: 0
+  Esx: 0
+      
+ProtectedMachines:
+  - ProtectedMachine:
+      attributes: #SpazWriter TestDataWriter
+      Machine:
+        initialPowerState: PoweredOn
+        ip: None
+        Disks:
+          - Disk:
+            name: ProtectedMachine0-basedisk
+            isBaseDisk: True
+          - Disk:
+      Replica:
+      Image:
+  - ProtectedMachine:
+      enabled: False
+      Esx: 1
+      ReplicationGroup: 1
+      Machine:
+        initialPowerState: PoweredOff
+        ip: None
+        Disks:
+          - Disk:
+            name: ProtectedMachine0-basedisk
+            isBaseDisk: True
+          - Disk:
+            size: 1073741824
+          - Disk:
+            size: 1073741824
+      Replica:
+      Image:
+
+#╔════════════════════════════════════════════════════════════════════╗
+#║                       S P A Z   W R I T E R                        ║
+#╚════════════════════════════════════════════════════════════════════╝
+SpazWriter_defaults:
+  script1: checkablespaz.py  
+  script2: checkablespaz2.py  
+  script3: checkablespaz3.py  
+  checksum: True
+  killRunningSpazOnStart: True
+  blocks:
+    bytes: 8192
+    kilobytes: 8
+      
+      
+#╔════════════════════════════════════════════════════════════════════╗
+#║                  T E S T   D A T A   W R I T E R                   ║
+#╚════════════════════════════════════════════════════════════════════╝
+TestDataWriter_defaults:
+  writeCounts: 10
+  pageSize: 8192
+  checksumPages: False
+  checksumDisk: True

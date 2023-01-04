@@ -1,0 +1,263 @@
+Physics formulas
+
+https://mathspace.co/learn/world-of-maths/theme-maths-and-driving/car-safety-18807/investigation-stopping-distance-13/
+https://physics.stackexchange.com/questions/3818/stopping-distance-frictionless
+http://www.dummies.com/education/science/physics/how-to-calculate-time-and-distance-from-acceleration-and-velocity/
+
+t=time
+a=acceleration
+Vi=start velocity
+Vf=end velocity
+u = initial velocity
+v = end velocity
+s=distance
+
+* time given start and end velocities and acceleration
+
+    v - u
+t= ---------
+       a
+       
+* distance traveled given time, acceleration, 
+
+s= ut + 1/2 (at\2)
+
+     v - u
+a = -------
+       t
+
+v = u + at
+
+     v - u
+t = -------
+       a
+       
+t = 4m/s - 0m/s
+   ------------- = 4 s time to accelerate from zero m/s
+       1m/s2
+       
+t = 4/1 = 4 seconds
+
+
+     
+t = 0m/s - 4m/s
+   ------------- = -4 s time to decelerate from 4m/s
+       1m/s2
+       
+s = ut+ 1 at^2
+        -
+        2
+        
+s = 0 + 1/2 * (4m/s^2)(4s)^2
+  = 1/2 * (4 * 16)
+  = 32 m
+  
+s = 1/2 at^2
+s = 1/2 * 1*4^2 = 1/2 * 16 = 8 meters
+
+4 seconds to accelerate from zero, 
+8 meters of displacement
+       
+       
+Circle relationships
+- need to know when the circle is inside or outside
+- because when transferring to an outside circle the direction reverses
+- SOL: shift occurs when the adjacency angles do not match, that is, when the circle is
+  outside the connection angles differ
+- Adjacent contained circles always (seem? to) have the same angle
+- Adjacent outside circles have opposing angles
+- It is possible in an airport to have roads (circles) that are adjacent but at different locations/angles
+  i.e. circle A contains smaller circles B and C, A-B@0 and A-C@90, so B is at the left of A, C is connected at the top
+  B and C need not be connected, depending on their size
+  
+Circumference
+- calculate circumference from radius
+
+C = PI * (r*2)
+
+largest circle: (4500*2) = 9000 * 3.14159 = 28,274.31 m = 28.27 km
+
+smallest permitted circle
+1000*2 * PI = 6,283.2
+circumference
+segment size = c/360 = 17.5 m
+
+time to travel a segment at 4m/s would be:
+
+    D
+t = -
+    V
+    
+t = 17.5 / 4m/s = 4.375 s 
+//8.75
+
+t = 32 / 4m/s = 8 s 
+
+t = 64 / 4m/s = 16 s 
+
+so a shift in direction would incur a cost of 8 seconds
+
+* Effect to direction on graph path efficiency
+- the minimum segment size is 17 meters
+- the minimum distance to accelerate/decelerate is 32 meters
+- this means that to do a full stop we must run into the next segment, the same with acceleration
+- if we enter another road at zero speed (theoretical, of course) if the destination is angle at 180, direction is irrelevant
+- however, in any direction, if the destination is 180, there's nothing to worry about, as far as what path
+- as for adjacent angles to 180: 179 and 181, here is a table:
+
+ optimality is considering minimum time, not fuel spent
+
+ let x be the distance or time required from src to dst
+ let y be the time expense during direction shift which is 8 seconds
+
+ SRC|DIR|DST|DIR2
+  0   +  179  + optimal
+  0   +  181  + still optimal, since 32 m exceeds segment size
+  0   -  179  - still optimal, since 32 m exceeds segment size
+  0   -  181  - optimal
+--------------------------  
+  0   +  178  + optimal
+  0   +  182
+  0   -  178
+  0   -  182  - optimal
+
+Segment sizes:
+  radius  meters  seconds
+A r=2500 = 43.6 = 10.9
+B r=1000 = 17.4 = 4.35
+C r=1000 = 17.4 = 4.35
+D r=3500 = 61.0 = 15.25
+E r=4500 = 78.5 = 19.62
+
+
+
+- at some circumference size, when the segment exceeds 32m, shifting direction is optimal?
+  - cost is 8 seconds and 64 meters
+  - so, for any segment size of 64 meters, direction shift always pays?
+
+OK: after several calculations on paper, it is clear that for the minimum circumference and higher
+    it is optimal to shift direction, the drone is to shift direction when exceeding 180 degrees to destination
+    TODO: test this during actual runtime with sample data, verification phase
+
+
+Points of transfer
+- Convert angle locations to actual distance, where the start is at angle 0
+
+
+SOLUTION:
+- Pre-parse file into 3 types, circles, intersections and route, and populate string arrays
+- 3 types of containers will be used, two classes to hold arrays of said containers:
+  circles, intersections and a route
+- Populate containers from string arrays, build relationships via other connection objects
+  that allow navigation, these would later be used as part of the graph
+- Since we are given angles as whole integers, and of these we can only have 360 per circle,
+  and the connection points are at these angle locations, the graph vertices are the 
+  connection points that intersect with another circle.
+- The circle is then segmented into these 360 pieces, these will be used for preliminary 
+  calculations to build a shortest path tree
+- The shortest path tree will be used so that we will know very fast which paths are possible
+  solutions, and then other calculations will proceed to find the actual shortest path given
+  the route variables.
+- Because we're dealing with circles, at each intersection two directions can be taken, the
+  parse tree will be calculated based on this fact. However, to speed up the computation of
+  the tree, initially, acceleration, deceleration and speed, will not be taken into account,
+  only distance, which will be used for the weights in the weighted graph. 
+- The situation above may be ideal, since there might be very many points to calculate, the 
+  possible issue arising from the above simple calculation is that the result may not be quite
+  as accurate, or it rather, it may fail to find the actual shortest time, in favor or shortest
+  distance. The solution might be to select several of these trees and then perform the full
+  calculation.
+
+- Could use several algorithms as plug-ins,
+- After studying boost graph BGL, it is quite versatile for numerous applications. It seems that
+  for this particular application, or graph representation would be quite simple. For the 
+  following reasons:
+  1) The only way to transition to another circle/road is through the intersections given
+  2) For that reason, it isn't necessary to add to the graph the vertices and most of the edges,
+     this is because the path can be used as is and then calculate the times and navigation to 
+     the other nodes
+  3) One of the simplifying aspects is that because all paths to any node, regardless of direction
+     should use the shortest distance path, the direction shift only adds 8 seconds to the cost,
+     that is to say, that given the smaller circle with a radius of 1000m, the benefit of pursuing
+     a longer path but lesser time cost would only be feasible with a smaller circle that that
+     TODO: verify this
+  4) The cost of transfer to another road is very small and constant for all
+  5) However, in order to be accurate and obtain optimal results, we must check all paths, and
+     calculate the results for each, since we don't know what exactly might happen, due to 
+     direction shifts and loops and other things
+     
+- I'll settle for Dijkstra's algorithm without weights, because those will be calculated after
+  we obtain the simple path, it goes something like this:
+  a) Initialize the graph using only the edges with correspond to the intersections give in the
+     input file
+  b) Use a modified Dijkstra algorithm, that returns the shortest path for point A to point B
+     remember that we said above that direction shift should always occur, since there's no 
+     apparent benefit from doing so, actually, we just calculate all paths and simply calculate
+     all costs for each path, to be safe
+  c) Once we have all possible paths for origin-destination, we navigate calculating the weights to 
+     know the time cost, or we use time cost for the weight instead of distance, since we know
+     velocity and speed, we always use the maximum speed, lesser speeds are only used while
+     shifting direction and we use the associated cost we precalculated at 8.3 seconds
+  d) We'll go ahead and use the weights, that being the radius, since traveling a smaller circle
+     incurs less cost, so when given several paths we can refine the result using the weight.
+
+Brute Force method:
+ - We have the group of circles, each with an array of intersection points
+ - We prepare an array of routes, consisting each of a point of origin and a point of
+   destination, this includes all intersection points
+ - We prepare parse trees for each route from the above array
+ - To prepare a parse tree for a route:
+  - Use recursion, or BFS
+  
+NOTES:
+ - At each intersection, we go into the next circle at a certain direction, the implication
+   is that if the next intersection happens at 180 degrees, one path will be faster
+ - Depending on circle size, neighboring points to the intersection may also be reached faster
+   depending on direction at point of entry
+ - For that reason, in the full calculation we account for direction and consider deceleration
+ - Find a constant, given the acceleration and deceleration, that can be used in the decision
+   to continue in one direction or to reverse. Given the fact that the navigator travels at a
+   constant speed, excepting acceleration and deceleration, the only factor for this constant
+   might be distance, so that this constant would have more of an effect on smaller circles,
+   since the stopping distance might exceed the segment distance
+
+ - Found BGL Boost Graph Library, seems promising for solving through various algorithms and 
+   comparing among them
+   
+ - Each circle having 360 vertices, some connected to other circles, the graphic, could be
+   unidirected 
+ - For this particular application, during navigation, it is only important to consider 
+   a) all the points in the origin, since depending on the location, the intersection might 
+      be closer in one or the other direction, 
+   b) all the points in the destination, for the same reason given above,
+   c) only the intersecting points to connect to other circles
+
+
+
+TODO:
+- Verification of correctness for circle intersections, taking into account the radius and 
+  intersection points
+
+
+OTHER NOTES:
+- Spent about two days playing with boost graph libraries, to see what works best and learn, 
+  and found that I was unable to make it work with fully populated nodes, for each angle for each 
+  circle, so that only the intersections and self reference links where added
+- I would have liked to write the code more elegantly but time was of the essence
+- It's missing unit testing, const correctness, better design
+- Code is very monolitic in the algorithm section, so that needs quite a bit of work
+- Need to add copy constructors and assignment operators, although deep copy wasn't necessary
+  in this instance
+- More consistent naming convention is needed
+- There are other areas for improvement
+
+Overall, I had great fun writing this application in a short time. Thanks for the opportunity.
+
+
+
+
+
+  
+  
+  
+  

@@ -1,0 +1,50 @@
+NOTE: This was calculated using my previous rate of $85 per hour
+giving a salary of $163,200 per year, using 48 weeks instead of 52
+due to possible sickness, vacation and holidays which aren't usually
+paid by employees to contractors.
+
+According to this program, the potential cost to develop this program
+is $151,400, of which I'm only billing less than $19,000 considering
+only the hours I worked, actually a lot less of the hours I worked,
+however because it is a short term, I'm billing at $150 per hour.
+
+Still, it is a lot less than the effort to develop something like this.
+
+Have a non-directory at the top, so creating directory top_dir
+Adding /home/kg/Documents/HiveMapper/src/./DroneNavigator.cpp to top_dir
+Creating filelist for airport
+Creating filelist for parsed
+Creating filelist for utility
+Categorizing files.
+Finding a working MD5 command....
+Found a working MD5 command.
+Computing results.
+
+
+SLOC	Directory	SLOC-by-Language (Sorted)
+1440    airport         cpp=1440
+296     parsed          cpp=296
+97      utility         cpp=97
+40      top_dir         cpp=40
+
+
+Totals grouped by language (dominant language first):
+cpp:           1873 (100.00%)
+
+
+
+
+Total Physical Source Lines of Code (SLOC)                = 1,873
+Development Effort Estimate, Person-Years (Person-Months) = 0.39 (4.64)
+ (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+Schedule Estimate, Years (Months)                         = 0.37 (4.48)
+ (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+Estimated Average Number of Developers (Effort/Schedule)  = 1.04
+Total Estimated Cost to Develop                           = $ 151,400
+ (average salary = $163,200/year, overhead = 2.40).
+SLOCCount,   (C) 2001-2004 David A. Wheeler
+SLOCCount is Open Source Software/Free Software, licensed under the GNU GPL.
+SLOCCount comes with ABSOLUTELY NO WARRANTY, and you are welcome to
+redistribute it under certain conditions as specified by the GNU GPL license;
+see the documentation for details.
+Please credit this data as "generated using David A. Wheeler's 'SLOCCount'."

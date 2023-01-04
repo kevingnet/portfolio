@@ -1,0 +1,40 @@
+Author: Kevin Guerra
+
+Solution application for:
+
+The goal is to navigate a drone through an airport in the shortest time possible. The airport is 
+composed of several interconnected circular roads, and the drone’s position is described by a 
+road name and the degrees clockwise around the road’s circumference. The drone can transfer 
+between roads at points of intersection.
+
+VALID COMMANDS:
+GO, STOP, REVERSE, TRANSFER
+The program 
+a) Reads an input file containing descriptions for circles, which are roads,
+   intersections, start and destination locations.
+b) Calculates those steps and the time it takes to execute
+c) Output the result to the console/terminal
+d) Creates a dot graph file for later converting, the name of the file would correspond
+   to the algorithm used, in this case dijkstra.dot
+
+OPTIONS:
+a) -a algorithm Only dijkstra is supported for now
+b) -f file_path Input file name with world description
+c) -d Specify -d to output debug information at every step
+
+To run this command line utility
+a) Open up a console or terminal, cd to the binary location, one is provided in the bin directory
+b) Run DroneNavigator -d -f ./DroneNavigator.world
+c) Optionally, run: dot -Tps dijkstra.dot -o dijkstra.ps
+
+There are some sample world (input) files, graphics files, sample output and sloccount output, 
+that shows some stats about the code.
+
+To develop, you may use any editor of your choice. Eclipse was used and you may have to adapt 
+the project for other build tools. Boost libraries were used, only those that do not need
+linking to other code, just the headers.
+
+Please see attached PDF file for more details.
+
+Please see attached design document and notes for information on design and algorithms.
+
