@@ -1,0 +1,261 @@
+DirectTV redrat automation system for linux (and perhaps windows too)
+
+Authors: Original RedRat code by John Schmerge, also other authors of libusb
+Author: Kevin Guerra, modified code and added many features including client/server code,
+ added case insensitivity to dtvrrd.c/h. 
+Turned into client/server app. Wrote Perl script dtvrrc to do the actual processing.
+
+I use this program to perform tests on the HR20s and it allows me to test two boxes for comparison and regresion test. It saves time and makes it more fun to test. Basically the first time i setup a test i would create a new script file and enter the commands there manually while I press them with the remote and follow the leads. Then to run the same test again I just run the script. 
+
+Thanks,
+Kevin Guerra
+
+-------------------------------------------------------------------------------------------------------------------
+
+NOTE: You do not need to know or understand all of this information to use this software, some technical details are
+provided for completeness sake and for users that would like to know more. 
+
+By default if the client detects that the server is not running it will run it and later shut it down, so you don't even need to start the server. But keep in mind that starting the server is the best way to use it. In fact, you do not even need to know your redrat(s) serial number(s).
+
+To test this and to make sure everything is ok run the following after the installation:
+
+'echo channel 7 sleep 5 info sleep 3 exit | dtvrrc' [Enter]
+
+If everything went well you should see all connected redrats cause their attached stbs to change to channel 7, sleep 6 seconds, access the info screen, wait 4 seconds and then exit the info screen. Hey, wait a minute, why 6 seconds and 4 seconds, instead of 5 and 3. Well, the default frequency is 1000 miliseconds, which will be added to every command that interfaces with the stb. So channel 7 causes the client to wait 1000 ms or 1 extra second and then sleep 5 will wait 5 seconds for a total of 6.
+
+
+WHAT IT IS:
+This is a system to interpret custom scripts that it will use to send commands to redrat devices and execute other programatic 
+operations. It is a system to aid in testing automation.
+
+HOW IT WORKS:
+The server dtvrrd will run in the background and will listen for connections from a client dtvrrc. The client will read
+commands and text from your scripts or commands can be piped directly and will interpret them and execute or send them to the server accordingly.
+
+SMALL EXAMPLES:
+0) run rrs to make sure the dtvrrd server is running
+1) from the command line type 'echo info sleep 2 exit |dtvrrc'
+2) create a text file called myscript with the text 'setredrat CD1 frequency 1300 channel 7 loop 10 channel+ sleep 8 info sleep 3 exit endl' and run that script as follows 'dtvrrc myscript'
+
+ADVANCED USAGE:
+You can make your scripts executable as follows:
+1) Create your script file and add commands.
+2) In the first line of your script add this line: '#!/usr/bin/perl /path/to/dtvrrc'
+3) Make your script executable: chmod +x myscript
+4) Run your script as: ./myscript
+
+INSTALLATION:
+run ./install.sh
+that will copy your files to the user ~/bin directory and will modify your ~/.bashrc file. 
+after installation run source ~/.bashrc
+
+CONFIGURATION:
+1) If the client and server will run on the same machine, the defaults are fine and you can start writing scripts and running them without further ado.
+2) Make sure there aren't any applications using port 7070 otherwise change the default as follows: run the server as 'env DTVRR_PORT=7071 sudo dtvrrd' and change that value in dtvrrc.cfg to use that same 7071 port.
+3) Review the file dtvrrc.cfg to make sure the defaults fit your needs.
+4) Add any macros you may need. Note: In future versions, the macro file should contain some useful macros.
+5) You can run a script from another computer that connects to the server computer by changing the DTVRR_HOST variable to contain either the server name or its ip adress in the dtvrrc.cfg file. You could even run the dtvrrc client in a windows machine with cygwin and perl installed. 
+
+FEATURES:
+Server
+1) Client/Server operation. This means you can run several scripts at the same time, even from different machines.
+2) Configurable connection port and connection timeout, through the environment DTVRR_PORT(7070) and DTVRR_TIMEOUT(300 secs)
+3) Redrat selection commands and keepalive command.
+4) Internal usb/redrat device mapping. Fixes problems when the user disconnects a redrat and later reconnects. The server addresses the redrats by serial number initially but keeps an internal list since all internal addressing is by index, for performance reasons.
+5) Automatic disconnection of clients based on timeout.
+6) Logging to /tmp/dtvrrd.log for errors and connection activity and to /tmp/dtvrrd.msg for client messages, max size is 10 megs
+7) Automatic detection of connection/disconnection of redrat devices.
+8) The server recognizes each client by its connected socket number which usually starts at number seven. The client does not "know" this number, but you can view it in the /tmp/dtvrrd.log file for debugging purposes.
+9) The server keeps a list of redrats assigned to each client, and will free them automatically when a client disconnects.
+10) When the server is first run and when a redrat is connected or disconnected the server will output a list of ALL redrats to the log file. Keep this in mind because the list will contain the serial numbers, in case you didn't know your device SN.
+11) Hot/Cold plug capability. I don't really know which one is which, but what this means is that you can unplug a redrat and later plug it back in, and your script should continue to run and the redrat should again respond to the commands. However, be nice and don't use this feature, because it fails on rare ocassions. So if you disconnect a redrat while running your script, restart the server and your script.
+12) Server command status response to client
+13) Command line switches -p port -t time out -d xmldb file
+
+Client
+1) Include files, macros, command line parameters and its own configuration file which are all optional and will use defaults.
+2) Configurable parameters with defaults. They can be overridden through the environment or dtvrrc.cfg file.
+	"DTVRR_HOST"		=> "localhost",		computer with dtvrrd running
+	"DTVRR_PORT"		=> 7070,		port that dtvrrd listens on
+	"DTVRR_FREQUENCY" 	=> 1000,		milliseconds between each command sent to a redrat
+	"DTVRR_TIMEOUT"		=> 300,			timeout in seconds for client disconnections
+	"DTVRR_DELAY"		=> 0,			extra delay after "certain" commands
+	"DTVRR_REDRATSN"      	=> "*", 		default redrat to send commands to, * means use all available redrats
+	"DTVRR_SERVEREXE"	=> "dtvrrd",		name of server application, this is used to check if it's running, if it
+							is not, it will be started and shutdown at the end of the script.
+	"DTVRR_SERVERMODE	=> "0",			0 = manual server start; 1 = auto start/shutdown;
+							2 = auto start, no shutdown
+3) Redrat selection commands and keepalive command.
+4) Commands are output as they are executed and when nesting loops the tabbing is changed to reflect that fact, and to give the user better feedback and more readability.
+5) Should be 100% compatible with the redrat software for windows scripts, including the loop command, for which you can use endl or loop for loop termination. However if you use the keyword loop for loop termination it *must* be the only command in that line.
+
+FILES:
+
+MG32081.xml	commands database, it contains all commands in the remote control for HR20's model number MG32801
+dtvrrd.xml	same as above. This is the file that the server app looks for in the directory where the executable is located
+dtvrrtrn	add commands to XML database, you shouldn't need to run this.
+dtvrrd		main application, it is a daemon (system service) which receives tcpip connections and sends commands to redrat
+dtvrrc		client application, perl script reads in script text files with commands to send to redrat
+rrs		helper script to startup the system: sudo pkill dtvrrd ; sudo dtvrrd
+
+BASIC USAGE:
+1) Start 'dtvrrd' process.		sudo dtvrrd (or type rrs as a shortcut)
+2) pipe script file to 'dtvrrc'		cat myscript | dtvrrc
+
+DETAILED USAGE and SCRIPT SYNTAX: (what's in your script...)
+0) You can put the commands in the same line in separate lines, use comment lines or comments after the commands.
+NOTE: exception to this rule, commands print and dialog should be on one line.
+1) All commands from the remote MG32081, according to their name, color or function, for details view commands.txt
+2) Commands are CASE INSENSITIVE, so you can use Channel or channel and not have to worry about it.
+3) List of script directives (also commands, in your script):
+	COMMAND		SYNTHAX			EXAMPLE			EXPLANATION
+	 ) comments	; or #			#this is a comment 
+	a) DELAY	delay miliseconds	delay 2000		wait two seconds
+	b) SLEEP	sleep seconds		sleep 2			wait two seconds
+	c) PRINT/OUTPUT	print/output word	print hello world	it just prints text (keep command and text on same line)
+	d) WAIT		wait 			wait			waits indefinitely until user inputs a key
+	e) DIALOG	dialog text		dialog hello you	(keep command and text on same line)
+	f) FREQUENCY	frequency ms		frequency 1000		interval between commands
+	g) CHANNEL	channel number		channel 70		it's just like doing '7 0 enter' pick the synthax you like
+	h) LOOP		loop number cmds endl   loop 3 channel+ endl    
+	i) KEEPALIVE	keepalive		keepalive		make sure script does not timeout 
+	j) KEYPAD	keypad ~text		keypad hanks_tom	Ok, this is my favorite command. Do you remember the keypad
+		in the directv ui? For example when you do a search you have to enter some text. How do you script that? Well, you 
+		can figure out how many down, up, left, right, select, etc... keys you need to enter. This will work ok, but in your
+		script, it looks really messy and very verbose. Solution, use the keypad command, duh! This command will just figure
+		out all the keys it needs to enter for you. the ~ (tilde) character will cause keypad to clear any text first, and 
+		the _ (underscore) character *is* the space.
+	k) TIMEOUT	timeout minutes		timeout 10		causes the script to exit after the number of minutes
+	l) REDRAT SELECTION COMMANDS These commands work on a client by client or script by script basis. Meaning whatever command
+			you use will apply to the script for which it is called. When a client script is run dtvrrc assigns by
+			default all available redrats, this is not nice. So make sure your first line reads addredrat SN or
+			setredrat SN. Ok the reason it was done this way is so that people that don't read manuals or info pages
+			are able to use this system anyway. Which in most cases will be one computer, one user, one script. These
+			commands are otherwise important if the user needs/wants/??? to run two or more scripts concurrently.
+		selectallredrats	try to use all available (not used by other script/client) redrats
+		deselectallredrats	give back redrats that the script is using.
+		addredrat SN 		try to use redrat with serial number SN 
+		delredrat SN		give back redrat with serial number SN
+		setredrat SN		shorthand for deselectallredrats AND addredrat SN
+4) dtvrrc.cfg and dtvrrc.macros are searched in this order: 
+	a) current directory
+	b) directory where dtvrrc script is located
+	c) /etc/ directory
+5) To include another script file in your script use something like '@include /path/to/script.file'
+6) To use a macro, the macro must be first defined in dtvrrc.macros, for example 'macro1=info sleep 2 exit' to use that macro in your script call it as @macro1
+7) Command line parameters can be used to substitute anything that you want to change in your script externally, instead of editing your script everytime. For example, suppose you have a script with a loop that you want to run sometimes 10 times and at other times 1 million times, for stress testing. This can be accomplished as follows: 'loop @0 channel+ sleep 5 info sleep 2 exit endl' save that text to a file and call it as, for instance: 'dtvrrc myscript 10' this will cause the loop to happen 10 times. Notice that the numbering starts at @0 (zero) this is important, and if the number of parameters passed to the script is insufficient there will be trouble.
+
+PROGRAM OPERATION:
+1) When you do 'cat ????(file) | dtvrrc' or 'dtvrrc script.txt' the script reads in the whole file and strips comments and any white space
+2) The file is parsed line by line and any include directives are processed then recursively, so that if one is found, it will start with the include and once that's done it will return where it left off. Macros are also converted at this stage as are command line parameters.
+3) Script ends up as a long string and is converted into an array, the array is traversed and the text is parsed and interpreted as commands or other directives to the script.
+4) dtvrrc enters a main loop which uses that array and the commands are sent to the server 'dtvrrd' through a socket connection. Or directives are interpreted and code executed or it may enter other loops.
+5) The server logs all activity in /tmp/dtvrrd.log
+6) dtvrrc will show each command as it is executed
+7) if your script does not send a command within the set timeout, your script is terminated. You can use keepalive to prevent this.
+
+
+TODO:
+1) Sometimes, on rare ocassions if the user disconnects a redrat and later reconnects it, the device will appear unavailable.
+
+SUGGESTIONS:
+If you think of something useful that could be added, don't hesitate to share that information if it will make this app better.
+
+CURRENT KNOWN ISSUES:
+1) max red rats is 20, which is hardcoded, it could be expanded if necessary. This keeps memory usage low, which is a good thing.
+2) max connections is 20, for the same reasons as above. This means you can only have 5 scripts running at any one time.
+3) commands are queued by libusb, during testing it was noted that when the redrat devices are being bombarded with signals at a rate of about 200 per second or more, the commands are queued, since it's not humanly possible for the device to process them that fast they are queued, however at some point the queue fills up and YOUR client WILL freeze up. I guess until the device has a chance to process them, or something. Avoid this situation by using common sense and do not send too many commands too fast.
+
+TESTED ON:
+The application has been tested with Fedora Core 3 and Core 6. The binaries were compiled in Core 3, for some reason, Core 6 changed something, requiring you to recompile the application. However, before you can recompile you must install libusb development. That package must be downloaded from the libusb.org site and installed. Remember, we're talking about non Core 3 fedora, for Core 3 you're all set, the binaries should work.
+The client application has been tested in windows with cygwin and perl.
+
+TROUBLE SHOOTING:
+If if does not seem to work type: 'ps -All |grep dtvrrd' to see if the server is running.
+You can look at the log file in /tmp/dtvrrd.log, you should see a line with a serial number for each redrat device that is connected.
+If the server does not start, your machine may have a different configuration. You can try rebuilding the binaries from the source. Change to the src directory and type make install, that should build the executables and copy them to your ~/bin directory, and retry starting the server and look at the logs. 
+When rebuilding you will see some warnings but it should build without errors. If you get errors you may not have a header file that needs to be included. In that case make sure you have everything you need to build, and for that you may need to search and/or download files. If all else fails you can ask your supervisor or try to contact me for help. 
+If you still have issues please make sure you read everything in this file, it may yield something useful.
+
+BUILDING FROM SOURCE: (if you must)
+to compile run:
+make
+
+to install run:
+make install
+
+to clean run:
+make clean
+
+------------------------------------------------------------------------------------------------------------
+
+USAGE:
+
+Note: for a list of all commands look at ../doc/commands.txt
+
+1) Echo and Pipe commands:
+	a) echo info sleep 2 exit |dtvrrc
+
+2) Text file commands:
+	a) edit a text file and enter commands there
+	b) run it:
+		I) cat script.txt |dtvrrc (note: you cannot specify optional parameters this way)
+		II) dtvrrc scripts.txt [optional parameters that map to @0 @1 in the text file ...]
+3) Executable script file:
+	a) edit a text file and this should be the first line '#!/usr/bin/perl /full/path/to/dtvrrc'
+	b) add your script commands, comments, etc...
+	c) make the script executable: chmod +x script
+	d) run it as: './script' this will cause the os to load perl and have perl look for dtvrrc and then load your text.
+
+
+
+COMMAND LINE PARAMETERS:
+
+You can add command line parameters to your scripts, as follows:
+	a) edit a text file and add commands
+	b) a command line parameter can be added with the @ character and a number starting at zero. Make sure that the sequence is correct, in other words don't skip numbers.
+
+Note: this should also be applicable to macros and include files, in the sense that your script can have a @0 and a macro could have a @1 and an include file a @2, and so on... This has not been tested but it should work since all files are parsed prior to execution of code.
+
+
+MACROS:
+
+You can add macros to dtvrrc.macros, as follows:
+	a) edit dtvrrc.macros
+	b) add macro_name=script commands
+	c) one macro per line.
+
+You can call a macro in your script, as follows:
+	a) edit your script
+	b) add @macro_name
+	c) dtvrrc will parse and substitute @macro_name for whatever is after the = sign.
+
+INCLUDE FILES:
+
+You can create text files with commands (note: even the executable ones, since they start with a # character it will be treated as a comment and stripped) and include them in other scripts as follows:
+
+	@include path/to/include/file
+
+That must be on *one line*, it can be the full path or a relative path to the current working directory
+
+
+CONFIGURATION FILES:
+
+Yes plural, since you can have several ones. dtvrrc tries to read dtvrrc.cfg from the current directory and then from ~/bin.
+
+There are several configuration parameters that can be set in the configuration files, such as:
+
+DTVRR_HOST		= localhost ;connect locally by default, replace with an ip address or host name to connect to a remote dtvrrd server
+DTVRR_PORT		= 7070 ;default ip port (note: this must match the server's listen port)
+DTVRR_FREQUENCY 	= 1000 ;milliseconds to wait between commands that are sent to a redrat device
+DTVRR_TIMEOUT		= 300 ; how long will dialog boxes from the dialog command will timeout
+DTVRR_DELAY		= 0 ; extra delay between redrat commands (note: for future use)
+DTVRR_REDRATSN      	= * ;default redrat (* means all redrats will receive the commands)
+DTVRR_SERVEREXE		= dtvrrd
+DTVRR_SERVERMODE	= 0 (dtvrrc will *not* start the server in case is not running, and will not shut it down)
+			= 1 (dtvrrc *will* start the server if it's not running, and *will* shut it down only if it started it)
+			= 2 (dtvrrc will start the server, but it will leave it running regardless)
+
+NOTE: You can set the port, timeout and xml file parameters for the server on the command line. Type dtvrrd -h for help
+
+
